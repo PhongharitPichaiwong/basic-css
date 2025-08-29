@@ -1,0 +1,1565 @@
+<!DOCTYPE html>
+<html lang="th">
+  <!-- head section -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- browser tab title -->
+    <title>Basic CSS Workshop</title>
+
+    <!-- external CSS -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- external JavaScript -->
+    <script src="function.js"></script>
+
+    <!-- internal CSS -->
+    <style>
+      h1 {
+        color: yellow;
+      }
+    </style>
+  </head>
+
+  <!-- body section -->
+  <body>
+    <!-- Introduction -->
+    <section id="introduction">
+      <h1>Basic CSS Workshop</h1>
+      <p class="intro-subtitle">
+        เรียนรู้ CSS จากพื้นฐานสู่ขั้นสูง ผ่านตัวอย่างจริงและ Interactive Demos
+      </p>
+
+      <!-- Navigation Menu -->
+      <nav class="workshop-nav">
+        <div class="nav-grid">
+          <a href="#html-structure" class="nav-item">
+            <span class="nav-number">01</span>
+            <span class="nav-title">HTML Structure & Tags</span>
+            <span class="nav-desc">โครงสร้างพื้นฐานของ HTML</span>
+          </a>
+          <a href="#css-selectors" class="nav-item">
+            <span class="nav-number">02</span>
+            <span class="nav-title">CSS Selectors</span>
+            <span class="nav-desc">การเลือกองค์ประกอบใน CSS</span>
+          </a>
+          <a href="#specificity" class="nav-item">
+            <span class="nav-number">03</span>
+            <span class="nav-title">Specificity</span>
+            <span class="nav-desc">กฎการชนะของ CSS</span>
+          </a>
+          <a href="#cascading" class="nav-item">
+            <span class="nav-number">04</span>
+            <span class="nav-title">CSS Cascading</span>
+            <span class="nav-desc">การไหลของ CSS</span>
+          </a>
+          <a href="#box-model" class="nav-item">
+            <span class="nav-number">05</span>
+            <span class="nav-title">Box Model & Units</span>
+            <span class="nav-desc">โมเดลกล่องและหน่วยวัด</span>
+          </a>
+          <a href="#flexbox" class="nav-item">
+            <span class="nav-number">06</span>
+            <span class="nav-title">Flexbox Layout</span>
+            <span class="nav-desc">จัดเรียงแบบยืดหยุ่น</span>
+          </a>
+          <a href="#grid" class="nav-item">
+            <span class="nav-number">07</span>
+            <span class="nav-title">CSS Grid</span>
+            <span class="nav-desc">ระบบเลย์เอาต์แบบตาราง</span>
+          </a>
+          <a href="#position" class="nav-item">
+            <span class="nav-number">08</span>
+            <span class="nav-title">Position & Z-Index</span>
+            <span class="nav-desc">การวางตำแหน่งองค์ประกอบ</span>
+          </a>
+          <a href="#properties" class="nav-item">
+            <span class="nav-number">09</span>
+            <span class="nav-title">CSS Properties</span>
+            <span class="nav-desc">คุณสมบัติ CSS สำคัญ</span>
+          </a>
+          <a href="#advanced-units" class="nav-item">
+            <span class="nav-number">10</span>
+            <span class="nav-title">Advanced Units</span>
+            <span class="nav-desc">หน่วยวัดขั้นสูงและฟังก์ชัน</span>
+          </a>
+          <a href="#transform" class="nav-item">
+            <span class="nav-number">11</span>
+            <span class="nav-title">Transform & Transition</span>
+            <span class="nav-desc">เอฟเฟกต์การเปลี่ยนแปลง</span>
+          </a>
+          <a href="#animations" class="nav-item">
+            <span class="nav-number">12</span>
+            <span class="nav-title">CSS Animations</span>
+            <span class="nav-desc">แอนิเมชันและ Keyframes</span>
+          </a>
+          <a href="#movie-component" class="nav-item">
+            <span class="nav-number">13</span>
+            <span class="nav-title">Movie Card Component</span>
+            <span class="nav-desc">รวมทุกเทคนิคที่เรียนมา</span>
+          </a>
+        </div>
+      </nav>
+    </section>
+
+    <br />
+    <!-- HTML Structure & Common Tags -->
+    <section id="html-structure">
+      <h2>โครงสร้าง HTML และแท็กที่ใช้บ่อย</h2>
+
+      <!-- Headings -->
+      <div class="html-example">
+        <h3>Headings (h1-h6)</h3>
+        <p>แท็กหัวเรื่องตามลำดับความสำคัญ</p>
+        <pre><code>&lt;h1&gt;Movie Discover&lt;/h1&gt;
+&lt;h2&gt;รายละเอียดหนัง&lt;/h2&gt;
+&lt;h3&gt;คะแนนและรีวิว&lt;/h3&gt;</code></pre>
+        <div class="demo">
+          <h1 class="demo-heading">Movie Discover</h1>
+          <h2 class="demo-heading">รายละเอียดหนัง</h2>
+          <h3 class="demo-heading">คะแนนและรีวิว</h3>
+        </div>
+      </div>
+
+      <!-- Paragraph -->
+      <div class="html-example">
+        <h3>Paragraph (p)</h3>
+        <p>แท็กสำหรับย่อหน้าข้อความ</p>
+        <pre><code>&lt;p&gt;หนังเรื่องนี้เล่าเรื่องราว
+ของฮีโร่ที่ต้องปกป้องโลก
+จากภัยคุกคาม&lt;/p&gt;</code></pre>
+        <div class="demo">
+          <p>หนังเรื่องนี้เล่าเรื่องรางของฮีโร่ที่ต้องปกป้องโลกจากภัยคุกคาม</p>
+        </div>
+      </div>
+
+      <!-- Links -->
+      <div class="html-example">
+        <h3>Links (a): Anchor</h3>
+        <p>แท็กสำหรับสร้างลิงก์ไปยังหน้าอื่น</p>
+        <pre><code>&lt;a href="google.com"&gt;
+  ดูหนังทั้งหมด
+&lt;/a&gt;</code></pre>
+        <div class="demo">
+          <a href="https://google.com" class="demo-link">ดูหนังทั้งหมด</a>
+        </div>
+      </div>
+
+      <!-- Images -->
+      <div class="html-example">
+        <h3>Images (img), alt: alternate text (ข้อความสำรอง)</h3>
+        <p>แท็กสำหรับแสดงรูปภาพ</p>
+        <pre><code>&lt;img src="poster.jpg" 
+  alt="โปสเตอร์หนัง Avengers"&gt;</code></pre>
+        <div class="demo">
+          <img
+            src="https://drive.google.com/file/d/1C-0eK6wPlbMgoEC37eLbz2Zp57qKaYcq/view?usp=sharing"
+            alt="โปสเตอร์หนัง Avengers"
+            class="demo-image"
+          />
+        </div>
+      </div>
+
+      <!-- Lists -->
+      <div class="html-example">
+        <h3>Lists (ul, ol, li): Unordered List, Ordered List, List Item</h3>
+        <p>แท็กสำหรับสร้างรายการ</p>
+        <pre><code>&lt;ul&gt;
+  &lt;li&gt;แอ็คชั่น&lt;/li&gt;
+  &lt;li&gt;โรแมนติก&lt;/li&gt;
+  &lt;li&gt;สยองขวัญ&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+        <div class="demo">
+          <ul class="demo-list">
+            <li>แอ็คชั่น</li>
+            <li>โรแมนติก</li>
+            <li>สยองขวัญ</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Divs & Spans -->
+      <div class="html-example">
+        <h3>Divs & Spans: Division, Span (inline-level elements)</h3>
+        <p>แท็กจัดกลุ่มและจัดระเบียบ</p>
+        <pre><code>&lt;div class="movie-card"&gt;
+  &lt;h3&gt;Avengers&lt;/h3&gt;
+  &lt;p&gt;ราคา: &lt;span class="price"&gt;
+    299
+  &lt;/span&gt; บาท&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+        <div class="demo">
+          <div class="basic-movie-card">
+            <h3>Avengers</h3>
+            <p>ราคา: <span class="price">299</span> บาท</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Summary -->
+      <div class="html-summary">
+        <p>
+          <strong>สรุป:</strong> HTML ทำหน้าที่เป็นโครงสร้างของเว็บไซต์ ส่วน CSS
+          จะทำหน้าที่ตกแต่งให้สวยงาม เปรียบเสมือน HTML คือโครงกระดูก และ CSS
+          คือผิวหนังและเสื้อผ้า
+        </p>
+      </div>
+
+      <!-- Back to Top -->
+      <div class="back-to-top">
+        <a href="#introduction" class="back-to-top-btn">🔝 กลับสู่หน้าแรก</a>
+      </div>
+    </section>
+
+    <br />
+    <!-- CSS Selectors -->
+    <section id="css-selectors">
+      <h2>CSS Selectors</h2>
+      <p>
+        CSS Selectors เป็นเครื่องมือที่เราใช้เพื่อ "เลือก" หรือ "ระบุ"
+        องค์ประกอบ HTML ที่เราต้องการจะกำหนดสไตล์ หากไม่มีตัวเลือกเหล่านี้
+        เราจะไม่สามารถบอกได้ว่ากฎ CSS ที่เราเขียนจะไปมีผลกับส่วนไหนของหน้าเว็บ
+      </p>
+
+      <h3>ตัวเลือกที่พบบ่อย:</h3>
+
+      <!-- Element Selector Example -->
+      <div class="selector-example">
+        <h4>
+          Element Selector: เลือกองค์ประกอบตามชื่อแท็ก HTML เช่น h1, p, div
+        </h4>
+        <pre><code>h1 {
+  color: blue;
+}</code></pre>
+        <div class="demo">
+          <h1 class="demo-h1">ตัวอย่าง: หัวข้อนี้จะเป็นสีน้ำเงิน</h1>
+        </div>
+      </div>
+
+      <!-- Class Selector Example -->
+      <div class="selector-example">
+        <h4>
+          Class Selector: เลือกองค์ประกอบที่มี class ที่กำหนดไว้
+          โดยใช้เครื่องหมายจุด . นำหน้า
+        </h4>
+        <pre><code>.container {
+  width: 100%;
+}</code></pre>
+        <div class="demo">
+          <div class="demo-container">
+            ตัวอย่าง: กล่องนี้มี class="demo-container"
+          </div>
+        </div>
+      </div>
+
+      <!-- ID Selector Example -->
+      <div class="selector-example">
+        <h4>
+          ID Selector: เลือกองค์ประกอบที่มี id ที่กำหนดไว้ โดยใช้เครื่องหมาย #
+          นำหน้า
+        </h4>
+        <pre><code>#main-menu {
+  background-color: black;
+}</code></pre>
+        <div class="demo">
+          <div id="main-menu">ตัวอย่าง: กล่องนี้มี id="main-menu"</div>
+        </div>
+      </div>
+
+      <h3>Attribute และ Pseudo-element Selectors</h3>
+      <p>
+        นอกจากตัวเลือกพื้นฐานอย่าง element, class, และ id แล้ว
+        ยังมีตัวเลือกที่ซับซ้อนขึ้นอีกหลายประเภท:
+      </p>
+
+      <!-- Attribute Selector Example -->
+      <div class="selector-example">
+        <h4>1. Attribute Selector (ตัวเลือกตามคุณสมบัติ)</h4>
+        <p>
+          ใช้เพื่อเลือกองค์ประกอบที่มีคุณสมบัติ (attribute) ที่กำหนดไว้
+          โดยใช้เครื่องหมายวงเล็บเหลี่ยม []
+        </p>
+
+        <h5>ตัวอย่าง: เลือก button ทั้งหมดที่มี type="submit"</h5>
+        <pre><code>button[type="submit"] {
+  background-color: green;
+  color: white;
+}</code></pre>
+        <div class="demo">
+          <button type="button">ปุ่มธรรมดา</button>
+          <button type="submit">ปุ่ม Submit (สีเขียว)</button>
+        </div>
+
+        <h5>ตัวอย่าง: เลือกแท็ก &lt;a&gt; ที่มี href ขึ้นต้นด้วย https://</h5>
+        <pre><code>a[href^="https://"] {
+  color: orange;
+}</code></pre>
+        <div class="demo">
+          <a href="http://example.com">ลิงก์ HTTP (สีปกติ)</a><br />
+          <a href="https://example.com">ลิงก์ HTTPS (สีส้ม)</a>
+        </div>
+      </div>
+
+      <!-- Pseudo-class Selector Example -->
+      <div class="selector-example">
+        <h4>2. Pseudo-class Selector (ตัวเลือกสถานะ)</h4>
+        <p>
+          ใช้เพื่อเลือกองค์ประกอบตาม สถานะ ของมัน เช่น เมื่อถูกเมาส์ชี้,
+          เมื่อถูกคลิก, หรือเมื่อเป็นองค์ประกอบแรกในกลุ่ม โดยใช้เครื่องหมายโคลอน
+          :
+        </p>
+
+        <h5>ตัวอย่าง: เปลี่ยนสีลิงก์เมื่อเมาส์ชี้ไปที่ลิงก์นั้น</h5>
+        <pre><code>h3:hover {
+  text-decoration: underline;
+}</code></pre>
+        <div class="demo">
+          <h3 class="demo-hover-link">
+            ลองเอาเมาส์ชี้ที่ลิงก์นี้ (จะมีเส้นใต้)
+          </h3>
+        </div>
+
+        <h5>ตัวอย่าง: เลือกเฉพาะองค์ประกอบแรกในรายการ</h5>
+        <pre><code>li:first-child {
+  font-weight: bold;
+}</code></pre>
+        <div class="demo">
+          <ul class="demo-list">
+            <li>รายการแรก (ตัวหนา)</li>
+            <li>รายการที่สอง</li>
+            <li>รายการที่สาม</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Pseudo-element Selector Example -->
+      <div class="selector-example">
+        <h4>3. Pseudo-element Selector (ตัวเลือกองค์ประกอบเสมือน)</h4>
+        <p>
+          ใช้เพื่อเลือกและจัดสไตล์ ส่วนหนึ่ง ขององค์ประกอบที่ไม่ใช่แท็ก HTML
+          จริง โดยใช้เครื่องหมายโคลอนคู่ ::
+        </p>
+
+        <h5>ตัวอย่าง: เพิ่มเนื้อหาเสมือนก่อนหน้าข้อความในย่อหน้า</h5>
+        <pre><code>p::before {
+  content: "อ่านก่อน: ";
+  color: red;
+}</code></pre>
+
+        <h5>ตัวอย่าง: จัดสไตล์ตัวอักษรตัวแรกของย่อหน้า</h5>
+        <pre><code>p::first-letter {
+  font-size: 2em;
+}</code></pre>
+        <div class="demo">
+          <p class="demo-paragraph">
+            นี่คือตัวอย่างย่อหน้าที่มีการใช้ pseudo-element
+            ตัวอักษรตัวแรกจะใหญ่กว่าปกติ
+          </p>
+        </div>
+      </div>
+      <!-- Back to Top -->
+      <div class="back-to-top">
+        <a href="#introduction" class="back-to-top-btn">🔝 กลับสู่หน้าแรก</a>
+      </div>
+    </section>
+
+    <br />
+    <!-- Specificity -->
+    <section id="specificity">
+      <h2>Specificity (กฎการชนะ)</h2>
+      <p>
+        เมื่อมีกฎ CSS หลายข้อที่พยายามจะกำหนดสไตล์ให้กับองค์ประกอบเดียวกัน
+        เบราว์เซอร์จะใช้หลักการที่เรียกว่า Specificity
+        เพื่อตัดสินใจว่ากฎไหนควรมีผลบังคับใช้ กฎที่มี Specificity
+        สูงกว่าจะเป็นผู้ชนะเสมอ
+      </p>
+
+      <h3>ลำดับความสำคัญจากสูงสุดไปต่ำสุด:</h3>
+
+      <!-- Inline Styles -->
+      <div class="specificity-example">
+        <h4>
+          Inline Styles: สไตล์ที่เขียนใน attribute style ของแท็ก HTML โดยตรง
+        </h4>
+        <pre><code>ตัวอย่าง: &lt;p style="color: red;"&gt;ข้อความนี้จะเป็นสีแดงเสมอ&lt;/p&gt;</code></pre>
+        <div class="demo">
+          <p style="color: red">ข้อความนี้จะเป็นสีแดงเสมอ (Inline Style)</p>
+        </div>
+      </div>
+
+      <!-- ID Selectors -->
+      <div class="specificity-example">
+        <h4>ID Selectors: ตัวเลือกที่ใช้ #id-name</h4>
+        <pre><code>#important-text {
+  color: green;
+}</code></pre>
+        <div class="demo">
+          <p id="demo-id-text">ข้อความที่ใช้ ID selector (สีเขียว)</p>
+        </div>
+      </div>
+
+      <!-- Class Selectors -->
+      <div class="specificity-example">
+        <h4>
+          Class, Attribute, and Pseudo-class Selectors: ตัวเลือกที่ใช้
+          .class-name, [attribute], :hover
+        </h4>
+        <pre><code>.red-text {
+  color: red;
+}</code></pre>
+        <div class="demo">
+          <p class="demo-red-text">ข้อความที่ใช้ Class selector (สีแดง)</p>
+        </div>
+      </div>
+
+      <!-- Element Selectors -->
+      <div class="specificity-example">
+        <h4>
+          Element and Pseudo-element Selectors: ตัวเลือกที่ใช้ชื่อแท็ก p, div
+          หรือ ::after
+        </h4>
+        <pre><code>p {
+  color: blue;
+}</code></pre>
+        <div class="demo">
+          <p class="demo-element-text">
+            ข้อความที่ใช้ Element selector (สีน้ำเงิน)
+          </p>
+        </div>
+      </div>
+
+      <!-- Multiple Classes Example -->
+      <div class="specificity-example">
+        <h4>กฎสำคัญ:</h4>
+        <p>
+          ถ้ามีกฎสองข้อที่มี Specificity เท่ากัน กฎที่ถูกเขียนทีหลังในไฟล์ CSS
+          จะเป็นผู้ชนะ (The last rule wins)
+        </p>
+
+        <h5>ตัวอย่างเมื่อมีหลาย Class:</h5>
+        <p>สมมติว่าคุณมี HTML ดังนี้</p>
+        <pre><code>&lt;div class="card active large-card"&gt;...&lt;/div&gt;</code></pre>
+
+        <p>และมี CSS ดังนี้</p>
+        <pre><code>/* Rule 1 */
+.active {
+  background-color: yellow;
+}
+
+/* Rule 2 */
+.large-card {
+  background-color: blue;
+}</code></pre>
+
+        <p>
+          ในกรณีนี้, กล่อง div จะมีพื้นหลังเป็นสี
+          <strong>น้ำเงิน (blue)</strong> เพราะว่ากฎ .large-card
+          ถูกเขียนไว้ทีหลังกฎ .active และทั้งสองกฎมี Specificity
+          ระดับเดียวกันคือ Class Selector
+        </p>
+
+        <div class="demo">
+          <div class="card active large-card">
+            Card ตัวอย่าง - พื้นหลังสีน้ำเงิน
+          </div>
+        </div>
+      </div>
+      <!-- Back to Top -->
+      <div class="back-to-top">
+        <a href="#introduction" class="back-to-top-btn">🔝 กลับสู่หน้าแรก</a>
+      </div>
+    </section>
+
+    <br />
+    <!-- CSS Cascading -->
+    <section id="cascading">
+      <h2>CSS (Cascading) เหมือนน้ำที่ไหลซึมเข้าทุกซอกทุกมุม</h2>
+      <p>CSS มีแนวคิดการไหลและการซึมซับที่คล้ายกับน้ำ:</p>
+
+      <!-- Flow -->
+      <div class="cascading-example">
+        <h3>การไหล (Flow)</h3>
+        <p>
+          CSS จะอ่านและประยุกต์กฎจาก "บนลงล่าง"
+          เหมือนน้ำที่ไหลจากที่สูงลงสู่ที่ต่ำ ถ้ามีกฎซ้ำซ้อน
+          กฎที่อยู่ด้านล่างสุดจะเป็นผู้ชนะ เช่น ถ้ากำหนด p เป็นสีน้ำเงินก่อน
+          แล้วกำหนดเป็นสีแดงทีหลัง ข้อความจะแสดงเป็นสีแดง
+        </p>
+
+        <h4>ตัวอย่าง:</h4>
+        <pre><code>p {
+  color: blue; /* กฎนี้ถูกเขียนก่อน */
+}
+
+p {
+  color: red; /* กฎนี้ถูกเขียนทีหลัง จึงชนะ */
+}</code></pre>
+
+        <p>
+          ในกรณีนี้ ข้อความในแท็ก &lt;p&gt; ทุกอันจะถูกแสดงผลเป็น
+          <strong>สีแดง</strong>
+        </p>
+
+        <div class="demo">
+          <p class="cascade-demo">ข้อความนี้เป็นสีแดง (กฎหลังชนะ)</p>
+        </div>
+      </div>
+
+      <!-- Specificity -->
+      <div class="cascading-example">
+        <h3>การซึมซับ (Specificity)</h3>
+        <p>
+          สไตล์จะ "ซึมซับ" จากกฎที่กว้างไปสู่กฎที่เฉพาะเจาะจง
+          เหมือนน้ำที่ซึมซับไปทั่ว
+          แต่จะถูกควบคุมให้ไหลไปยังจุดที่ต้องการโดยเฉพาะ เช่น สไตล์ใน id
+          จะชนะสไตล์ใน class เสมอ เพราะมีความเฉพาะเจาะจงมากกว่า
+        </p>
+
+        <p>
+          ดังนั้น CSS จึงเหมือนน้ำที่ไหลและซึมซับเข้าไปในทุกซอกทุกมุมของเว็บไซต์
+          เพื่อสร้างรูปลักษณ์ที่เราต้องการ
+        </p>
+      </div>
+
+      <!-- Complete Example -->
+      <div class="cascading-example">
+        <h3>ตัวอย่างสมบูรณ์:</h3>
+        <p>สมมติว่าคุณมีโค้ด HTML ดังนี้:</p>
+        <pre><code>&lt;p id="important-text" class="red-text"&gt;ข้อความสำคัญ&lt;/p&gt;</code></pre>
+
+        <p>และมีโค้ด CSS ดังนี้:</p>
+        <pre><code>p {
+  color: blue; /* กฎที่กว้างที่สุด: ระดับ Element */
+}
+
+.red-text {
+  color: red; /* กฎที่เจาะจงขึ้น: ระดับ Class */
+}
+
+#important-text {
+  color: green; /* กฎที่เจาะจงที่สุด: ระดับ ID */
+}</code></pre>
+
+        <p>
+          แม้ว่าจะกำหนดให้ข้อความเป็นสีน้ำเงินและสีแดง แต่สุดท้ายแล้ว ข้อความ
+          "ข้อความสำคัญ" จะแสดงผลเป็น <strong>สีเขียว</strong> เพราะกฎ
+          #important-text ที่ใช้ ID
+          มีความเฉพาะเจาะจงสูงสุดและมีผลเหนือกว่ากฎอื่นทั้งหมด
+          เหมือนน้ำที่ถูกควบคุมให้ไหลไปยังจุดที่ต้องการเป็นพิเศษ
+        </p>
+
+        <div class="demo">
+          <p id="important-text" class="red-text">
+            ข้อความสำคัญ - จะเป็นสีเขียว (ID ชนะ)
+          </p>
+        </div>
+      </div>
+      <!-- Back to Top -->
+      <div class="back-to-top">
+        <a href="#introduction" class="back-to-top-btn">🔝 กลับสู่หน้าแรก</a>
+      </div>
+    </section>
+
+    <br />
+    <!-- Box Model & Units -->
+    <section id="box-model">
+      <h2>Box Model & Units</h2>
+
+      <!-- Box Model -->
+      <div class="box-model-example">
+        <h3>Box Model</h3>
+        <p>
+          ใน HTML, ทุกองค์ประกอบ (element) จะถูกแสดงผลในรูปแบบของกล่องสี่เหลี่ยม
+          (Box) ซึ่งประกอบด้วยส่วนประกอบหลักดังนี้:
+        </p>
+
+        <h4>Content: เนื้อหาหลักขององค์ประกอบ (กำหนดด้วย width, height)</h4>
+        <h4>Padding: ช่องว่างภายในที่อยู่รอบเนื้อหา</h4>
+        <h4>Border: เส้นขอบที่ล้อมรอบ Padding และ Content</h4>
+        <h4>Margin: ช่องว่างภายนอกที่อยู่รอบ Border</h4>
+
+        <pre><code>.movie-card {
+  /* Content */
+  width: 300px;
+  height: 200px;
+  
+  /* Padding */
+  padding: 20px;
+  
+  /* Border */
+  border: 3px solid #f98ac7;
+  
+  /* Margin */
+  margin: 16px;
+}</code></pre>
+
+        <div class="demo">
+          <div class="box-model-demo">
+            <div class="content-area">Content Area</div>
+          </div>
+          <p class="box-model-info">
+            ขนาดจริงขององค์ประกอบ (Element) จะถูกคำนวณจากผลรวมของ Content,
+            Padding และ Border (สำหรับ Box Model แบบมาตรฐาน)
+          </p>
+        </div>
+      </div>
+
+      <!-- CSS Units -->
+      <div class="units-example">
+        <h3>CSS Units (หน่วยวัด)</h3>
+
+        <!-- Absolute Units -->
+        <div class="unit-category">
+          <h4>Absolute Units (หน่วยคงที่)</h4>
+          <h5>px: Pixels - เป็นหน่วยที่ตายตัว ไม่ปรับขนาดตามหน้าจอ</h5>
+          <h5>pt, cm, mm, in: หน่วยวัดทางกายภาพที่ใช้ในการพิมพ์เป็นหลัก</h5>
+        </div>
+
+        <!-- Relative Units -->
+        <div class="unit-category">
+          <h4>Relative Units (หน่วยสัมพันธ์ - แนะนำ ⭐)</h4>
+          <h5>rem: สัมพันธ์กับ font-size ของ root element (แท็ก html)</h5>
+          <h5>em: สัมพันธ์กับ font-size ของ parent element (องค์ประกอบแม่)</h5>
+          <h5>%: เปอร์เซ็นต์ของขนาด parent element</h5>
+          <h5>
+            vw, vh: เปอร์เซ็นต์ของความกว้าง (viewport width) หรือความสูง
+            (viewport height) ของหน้าจอ
+          </h5>
+          <h5>
+            auto: เป็นคำสั่งที่บอกให้เบราว์เซอร์คำนวณขนาดที่เหมาะสมให้เอง
+            โดยส่วนใหญ่ใช้กำหนดความกว้างและความสูง
+            หรือใช้จัดกึ่งกลางองค์ประกอบในแนวนอน (margin: auto)
+          </h5>
+        </div>
+
+        <!-- Units Example -->
+        <div class="unit-category">
+          <h4>ตัวอย่างการใช้งาน:</h4>
+          <pre><code>/* หาก font-size พื้นฐานของบราวเซอร์คือ 16px */
+.title-px { font-size: 32px; } /* ขนาดตายตัว 32px */
+.title-rem { font-size: 2rem; } /* 2 × 16px = 32px (ปรับตาม font-size หลัก) */</code></pre>
+
+          <div class="demo">
+            <div class="units-demo">
+              <p class="title-px">ตัวอย่างข้อความ 32px (ตายตัว)</p>
+              <p class="title-rem">ตัวอย่างข้อความ 2rem (สัมพันธ์)</p>
+              <p class="title-percent">ตัวอย่างข้อความ 150% (เปอร์เซ็นต์)</p>
+              <div class="width-auto">Div ที่ใช้ width: auto</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Back to Top -->
+      <div class="back-to-top">
+        <a href="#introduction" class="back-to-top-btn">🔝 กลับสู่หน้าแรก</a>
+      </div>
+    </section>
+
+    <br />
+    <!-- Flexbox Layout Magic -->
+    <section id="flexbox">
+      <h2>Flexbox Layout Magic</h2>
+
+      <div class="flexbox-example">
+        <h3>Flexbox คืออะไร?</h3>
+        <p>
+          ระบบจัดการ layout แบบยืดหยุ่น ที่ช่วยให้การจัดวาง elements ง่ายขึ้น
+        </p>
+
+        <div class="flexbox-info">
+          <h4>🎮 เรียนรู้เพิ่มเติม:</h4>
+          <p>
+            ลองเล่นเกม
+            <a
+              href="https://flexboxfroggy.com/"
+              target="_blank"
+              class="game-link"
+              >Flexbox Froggy</a
+            >
+            เพื่อฝึกฝน Flexbox อย่างสนุกสนาน!
+          </p>
+        </div>
+
+        <h4>การใช้งาน Flexbox:</h4>
+        <p>กำหนด display: flex ให้กับ parent</p>
+        <p>ปรับแต่ง properties ตามต้องการ</p>
+
+        <h4>⚡ ความรู้พื้นฐานสำคัญ:</h4>
+        <h5>📦 Default ของ HTML: ทุก element มี display: block โดยปกติ</h5>
+        <h5>➡️ Default flex-direction: row (แนวนอน)</h5>
+        <h5>🎯 justify-content: จัดตำแหน่งตาม main axis (แกนหลัก)</h5>
+        <h5>⚡ align-items: จัดตำแหน่งตาม cross-axis (แกนรอง)</h5>
+        <h5>🔄 flex-shrink: ควบคุมการหดตัวเมื่อพื้นที่ไม่พอ (default = 1)</h5>
+
+        <h4>Properties หลัก:</h4>
+        <h5>flex-direction: row, column</h5>
+        <h5>justify-content: จัดตำแหน่งแนวแกนหลัก</h5>
+        <h5>align-items: จัดตำแหน่งแนวแกนรอง</h5>
+        <h5>flex-wrap: ควบคุมการขึ้นบรรทัดใหม่</h5>
+        <h5>gap: ระยะห่างระหว่าง items</h5>
+
+        <h4>🚀 Flex Properties สำหรับ Responsive Layout:</h4>
+        <div class="flex-properties-info">
+          <h5>flex: 1 (0 1 auto) - default is flex: 1</h5>
+          <p>• flex-grow: 1 = ขยายเติมเต็มพื้นที่ว่าง</p>
+          <p>• flex-grow: 0 = ไม่ขยาย คงขนาดเดิมเสมอ</p>
+          <p>• flex-shrink: 1 = หดตัวได้เมื่อพื้นที่แคบ</p>
+          <p>• flex-shrink: 0 = ไม่หดตัว คงขนาดเดิมเสมอ</p>
+          <p>• flex-basis: auto = ขนาดเริ่มต้นตามเนื้อหา</p>
+
+          <h5>การใช้งาน Flex Values:</h5>
+          <p>• flex: 1 = แบ่งพื้นที่เท่ากัน</p>
+          <p>• flex: 0.5 = ได้พื้นที่ครึ่งหนึ่งของ flex: 1</p>
+          <p>• flex: 2 = ได้พื้นที่สองเท่าของ flex: 1</p>
+          <p>• flex: 0 0 250px = ขนาดคงที่ 250px ไม่ขยาย-หดตัว</p>
+        </div>
+
+        <h4>📐 Alignment Properties ขั้นสูง:</h4>
+        <div class="flex-alignment-info">
+          <h5>justify-content vs align-items vs align-content:</h5>
+          <p>
+            • <strong>justify-content:</strong> จัดตำแหน่งแนว main axis
+            (แกนหลัก)
+          </p>
+          <p>
+            • <strong>align-items:</strong> จัดตำแหน่งแนว cross axis (แกนรอง)
+            สำหรับแต่ละบรรทัด
+          </p>
+          <p>
+            • <strong>align-content:</strong> จัดตำแหน่งแนว cross axis สำหรับ
+            <em>หลายบรรทัด</em> (ใช้กับ flex-wrap)
+          </p>
+
+          <h5>เมื่อไหร่ใช้ align-content:</h5>
+          <p>• ต้องมี <code>flex-wrap: wrap</code> และมีหลายบรรทัด</p>
+          <p>• ควบคุมระยะห่างระหว่างบรรทัดทั้งหมด</p>
+          <p>
+            • ค่าที่ใช้: flex-start, center, space-between, space-around,
+            stretch
+          </p>
+        </div>
+
+        <pre><code>/* Netflix-style Navigation */
+.navbar {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ padding: 16px 24px;
+ background: #1a1a1a;
+}
+
+.logo {
+ color: #f98ac7;
+ font-size: 24px;
+ font-weight: bold;
+}
+
+.nav-links {
+ display: flex;
+ gap: 24px;
+ list-style: none;
+}
+
+/* Movie Cards Container */
+.movie-container {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 20px;
+ justify-content: center;
+}
+
+/* Movie Card */
+.movie-card {
+ flex: 0 0 250px;
+}
+
+/* เทคนิคจัดกลางแนวตั้งและแนวนอน */
+.centered-content {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ height: 100vh;
+}</code></pre>
+
+        <div class="demo">
+          <div class="flex-navbar">
+            <div class="flex-logo">Movie App</div>
+            <div class="flex-nav-links">
+              <span>หน้าแรก</span>
+              <span>หนัง</span>
+              <span>ซีรีส์</span>
+            </div>
+          </div>
+          <div class="flex-movie-container">
+            <div class="flex-movie-card">หนัง 1</div>
+            <div class="flex-movie-card">หนัง 2</div>
+            <div class="flex-movie-card">หนัง 3</div>
+          </div>
+
+          <!-- Align Content Demo -->
+          <div class="align-content-demo">
+            <h4>📐 ความแตกต่าง: align-items vs align-content</h4>
+            <div class="alignment-comparison">
+              <div class="align-demo-container">
+                <h5>align-items: center (แต่ละบรรทัด)</h5>
+                <div class="flex-align-items">
+                  <div class="align-item">Item 1</div>
+                  <div class="align-item tall">Item 2<br />Tall</div>
+                  <div class="align-item">Item 3</div>
+                  <div class="align-item">Item 4</div>
+                  <div class="align-item">Item 5</div>
+                  <div class="align-item">Item 6</div>
+                </div>
+              </div>
+
+              <div class="align-demo-container">
+                <h5>align-content: center (หลายบรรทัด)</h5>
+                <div class="flex-align-content">
+                  <div class="align-item">Item 1</div>
+                  <div class="align-item tall">Item 2<br />Tall</div>
+                  <div class="align-item">Item 3</div>
+                  <div class="align-item">Item 4</div>
+                  <div class="align-item">Item 5</div>
+                  <div class="align-item">Item 6</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Flex Values Demo -->
+          <div class="flex-values-demo">
+            <h4>🔥 ตัวอย่าง Flex Values (ลองปรับขนาดหน้าจอ):</h4>
+            <div class="flex-container">
+              <div class="flex-item-1">flex: 1</div>
+              <div class="flex-item-05">flex: 0.5</div>
+              <div class="flex-item-2">flex: 2</div>
+              <div class="flex-item-fixed">250px คงที่</div>
+            </div>
+
+            <!-- Nested Flex Demo -->
+            <h4>
+              🔥 Nested Flex: Parent (flex: 1) + Children (flex: 0.5 each):
+            </h4>
+            <div class="flex-container">
+              <div class="flex-item-static">Static Width</div>
+              <div class="flex-parent-container">
+                <span class="parent-label">Parent: flex: 1</span>
+                <div class="flex-child-05">Child 1: flex: 0.5</div>
+                <div class="flex-child-05">Child 2: flex: 0.5</div>
+              </div>
+              <div class="flex-item-static">Static Width</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Back to Top -->
+      <div class="back-to-top">
+        <a href="#introduction" class="back-to-top-btn">🔝 กลับสู่หน้าแรก</a>
+      </div>
+    </section>
+
+    <br />
+    <!-- CSS Grid -->
+    <section id="grid">
+      <h2>CSS Grid - Layout แบบตาราง</h2>
+
+      <div class="grid-example">
+        <h3>CSS Grid คืออะไร?</h3>
+        <p>
+          ระบบจัดการ layout แบบ 2 มิติ (แถวและคอลัมน์) ช่วยให้สร้าง layout
+          แบบซับซ้อนได้ง่าย
+        </p>
+
+        <h4>การใช้งาน Grid:</h4>
+        <p>กำหนด display: grid ให้กับ parent</p>
+        <p>กำหนดขนาดของคอลัมน์และแถว</p>
+        <p>วาง items ลงในตำแหน่งที่ต้องการ</p>
+
+        <h4>Properties หลัก:</h4>
+        <h5>grid-template-columns: กำหนดขนาดคอลัมน์</h5>
+        <h5>grid-template-rows: กำหนดขนาดแถว</h5>
+        <h5>gap: ระยะห่างระหว่าง cells</h5>
+        <h5>justify-items: จัดตำแหน่งแนวนอนใน cell</h5>
+        <h5>align-items: จัดตำแหน่งแนวตั้งใน cell</h5>
+
+        <pre><code>/* Responsive Movies Grid */
+.movies-grid {
+ display: grid;
+ grid-template-columns: repeat(
+ auto-fit, 
+ minmax(250px, 1fr)
+ );
+ gap: 24px;
+}
+
+/* Grid จัดเรียงแบบกำหนดเอง */
+.dashboard {
+ display: grid;
+ grid-template-columns: 1fr 2fr 1fr;
+ grid-template-rows: auto 1fr auto;
+ grid-template-areas:
+ "header header header"
+ "sidebar main ads"
+ "footer footer footer";
+ height: 100vh;
+}
+
+.header { grid-area: header; }
+.sidebar { grid-area: sidebar; }
+.main { grid-area: main; }
+.ads { grid-area: ads; }
+.footer { grid-area: footer; }
+
+/* Responsive Breakpoints */
+@media (max-width: 768px) {
+ .dashboard {
+ grid-template-columns: 1fr;
+ grid-template-areas:
+ "header"
+ "main"
+ "sidebar"
+ "ads"
+ "footer";
+ }
+}</code></pre>
+
+        <div class="demo">
+          <div class="grid-movies-demo">
+            <div class="grid-movie-item">หนัง 1</div>
+            <div class="grid-movie-item">หนัง 2</div>
+            <div class="grid-movie-item">หนัง 3</div>
+            <div class="grid-movie-item">หนัง 4</div>
+          </div>
+        </div>
+      </div>
+      <!-- Back to Top -->
+      <div class="back-to-top">
+        <a href="#introduction" class="back-to-top-btn">🔝 กลับสู่หน้าแรก</a>
+      </div>
+    </section>
+
+    <br />
+    <!-- Position & Z-Index -->
+    <section id="position">
+      <h2>Position & Z-Index - การวางตำแหน่ง</h2>
+
+      <div class="position-example">
+        <h3>Static (ค่าเริ่มต้น)</h3>
+        <p>ตำแหน่งปกติตามลำดับใน document flow</p>
+        <pre><code>.normal-element {
+  position: static;
+}</code></pre>
+
+        <h3>Relative</h3>
+        <p>เลื่อนจากตำแหน่งปกติ โดยไม่กระทบองค์ประกอบอื่น</p>
+        <p>
+          <strong>🔑 สำคัญ:</strong> องค์ประกอบยังคงครอบครองพื้นที่เดิมใน
+          document flow
+        </p>
+        <pre><code>.relative-element {
+  position: relative;
+  top: 20px;
+  left: 20px;
+}</code></pre>
+
+        <div class="relative-explanation">
+          <h4>💡 การทำงานของ Position Relative:</h4>
+          <ul>
+            <li>📍 <strong>ตำแหน่งอ้างอิง:</strong> ตำแหน่งปกติของตัวเอง</li>
+            <li>
+              👻 <strong>พื้นที่เดิม:</strong> ยังคงครอบครองพื้นที่เดิมใน layout
+            </li>
+            <li>
+              🚫 <strong>ไม่กระทบอื่น:</strong> องค์ประกอบอื่นไม่เลื่อนตาม
+            </li>
+            <li>
+              📏
+              <strong>top/left/right/bottom:</strong>
+              ระยะที่เลื่อนจากตำแหน่งเดิม
+            </li>
+          </ul>
+        </div>
+
+        <h3>Absolute</h3>
+        <p>วางตำแหน่งสัมพัทธ์กับ parent ที่มี position ไม่ใช่ static</p>
+        <pre><code>.parent {
+  position: relative;
+}
+.absolute-element {
+  position: absolute;
+  top: 0;
+  right: 0;
+}</code></pre>
+
+        <h3>Fixed</h3>
+        <p>ตรึงกับหน้าจอ ไม่เลื่อนไปตาม scroll</p>
+        <pre><code>.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}</code></pre>
+
+        <h3>การใช้งาน Z-Index</h3>
+        <p>
+          z-index ควบคุมลำดับชั้นการซ้อนทับของ elements ที่มี position ไม่ใช่
+          static
+        </p>
+        <p>ค่าเริ่มต้น: 0</p>
+        <p>ค่าสูงกว่าจะอยู่ด้านบน</p>
+        <p>ค่าต่ำกว่าจะอยู่ด้านล่าง</p>
+        <p>ค่าติดลบได้</p>
+
+        <pre><code>/* Sticky Header */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(20, 20, 20, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+/* Movie Rating Badge */
+.movie-card {
+  position: relative;
+}
+.movie-rating {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 3;
+  background: gold;
+  padding: 4px 8px;
+  border-radius: 6px;
+}</code></pre>
+
+        <div class="demo">
+          <!-- Step-by-step Relative Position Demo -->
+          <div class="relative-comparison">
+            <h4>🔍 เปรียบเทียบ Position Relative:</h4>
+
+            <div class="comparison-row">
+              <div class="comparison-before">
+                <h5>ก่อน (Normal Flow):</h5>
+                <div class="demo-container">
+                  <div class="box-static">Box 1</div>
+                  <div class="box-normal">Box 2</div>
+                  <div class="box-static">Box 3</div>
+                </div>
+                <p>Box 2 อยู่ในตำแหน่งปกติ</p>
+              </div>
+
+              <div class="comparison-after">
+                <h5>หลัง (Position Relative):</h5>
+                <div class="demo-container">
+                  <div class="box-static">Box 1</div>
+                  <div class="box-relative-demo">Box 2</div>
+                  <div class="box-static">Box 3</div>
+                </div>
+                <p>Box 2 เลื่อนไป แต่ยังจองพื้นที่เดิม</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="position-demo">
+            <div class="position-static">Static</div>
+            <div class="position-relative">Relative</div>
+            <div class="position-absolute">Absolute</div>
+          </div>
+
+          <div class="z-index-demo">
+            <div class="layer-1">Layer 1</div>
+            <div class="layer-2">Layer 2</div>
+            <div class="layer-3">Layer 3</div>
+          </div>
+        </div>
+      </div>
+      <!-- Back to Top -->
+      <div class="back-to-top">
+        <a href="#introduction" class="back-to-top-btn">🔝 กลับสู่หน้าแรก</a>
+      </div>
+    </section>
+
+    <br />
+    <!-- CSS Properties -->
+    <section id="properties">
+      <h2>CSS Properties พื้นฐานสำคัญ</h2>
+
+      <div class="properties-example">
+        <h3>Overflow</h3>
+        <p>จัดการเนื้อหาที่ล้นออกจากพื้นที่กำหนด</p>
+        <pre><code>.movie-title {
+  width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}</code></pre>
+        <p>ค่าที่ใช้บ่อย: visible, hidden, scroll, auto</p>
+
+        <h3>Aspect-Ratio</h3>
+        <p>กำหนดสัดส่วนของ element</p>
+        <pre><code>.movie-poster {
+  aspect-ratio: 2/3;
+  width: 100%;
+  height: auto;
+}
+
+/* หรือใช้กับ grid */
+.grid-cell {
+  aspect-ratio: 16/9;
+}</code></pre>
+
+        <h3>Object-Fit</h3>
+        <p>ควบคุมการปรับขนาดของรูปภาพใน container</p>
+        <pre><code>.movie-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}</code></pre>
+        <p>ค่าที่ใช้บ่อย: cover, contain, fill, none</p>
+
+        <h3>Cursor</h3>
+        <p>กำหนดรูปแบบเคอร์เซอร์เมื่อชี้ที่ element</p>
+        <pre><code>.movie-card { cursor: pointer; }
+.loading { cursor: wait; }
+.disabled { cursor: not-allowed; }</code></pre>
+
+        <h3>Display</h3>
+        <p>ควบคุมลักษณะการแสดงผลของ element</p>
+        <pre><code>.hidden { display: none; }
+.modal { display: flex; }
+.block { display: block; }
+.inline { display: inline; }</code></pre>
+
+        <h3>Border & Border-radius</h3>
+        <p>กำหนดเส้นขอบและความโค้งมน</p>
+        <pre><code>.movie-card {
+ border: 1px solid #f98ac7;
+ border-radius: 12px;
+}
+/* หรือกำหนดแยกด้าน */
+.tab {
+ border-bottom: 3px solid #f98ac7;
+}</code></pre>
+
+        <div class="demo">
+          <div class="properties-demo">
+            <div class="overflow-demo">
+              ข้อความยาวมากที่จะถูกตัดด้วย ellipsis เมื่อล้นออกจากพื้นที่
+            </div>
+            <div class="aspect-ratio-demo">16:9 Aspect Ratio</div>
+            <div class="cursor-demo">ลองชี้เมาส์ที่นี่</div>
+          </div>
+        </div>
+      </div>
+      <!-- Back to Top -->
+      <div class="back-to-top">
+        <a href="#introduction" class="back-to-top-btn">🔝 กลับสู่หน้าแรก</a>
+      </div>
+    </section>
+
+    <br />
+    <!-- CSS Units Advanced -->
+    <section id="advanced-units">
+      <h2>CSS Units ขั้นสูง & Functions</h2>
+
+      <div class="advanced-units-example">
+        <h3>Viewport Units</h3>
+        <p>หน่วยวัดที่สัมพันธ์กับขนาดของหน้าจอ (viewport)</p>
+        <h5>vw: 1% ของความกว้างหน้าจอ</h5>
+        <h5>vh: 1% ของความสูงหน้าจอ</h5>
+        <h5>vmin: 1% ของด้านที่เล็กกว่าระหว่างความกว้างและความสูง</h5>
+        <h5>vmax: 1% ของด้านที่ใหญ่กว่าระหว่างความกว้างและความสูง</h5>
+
+        <pre><code>.hero {
+  height: 100vh; /* สูงเต็มหน้าจอ */
+  width: 100vw; /* กว้างเต็มหน้าจอ */
+}
+.hero-title {
+  font-size: 8vw; /* ขนาดตามความกว้าง */
+}</code></pre>
+
+        <h3>CSS Calc()</h3>
+        <p>คำนวณค่าแบบผสมหน่วย</p>
+        <pre><code>.sidebar {
+  width: calc(100% - 250px);
+}
+.main-content {
+  height: calc(100vh - 60px);
+}</code></pre>
+
+        <h3>Clamp()</h3>
+        <p>กำหนดค่าระหว่างค่าต่ำสุดและสูงสุด</p>
+        <pre><code>.title {
+  /* min: 1.5rem, preferred: 4vw, max: 3rem */
+  font-size: clamp(1.5rem, 4vw, 3rem);
+}
+.container {
+  width: clamp(320px, 90%, 1200px);
+  margin: 0 auto;
+}
+.card-gap {
+  gap: clamp(16px, 3vw, 32px);
+}</code></pre>
+
+        <h3>Min() & Max()</h3>
+        <p>เลือกค่าต่ำสุดหรือสูงสุดจากตัวเลือก</p>
+        <pre><code>.responsive-width {
+  /* ไม่เกิน 90% และไม่เกิน 1200px */
+  width: min(90%, 1200px);
+}
+.guarantee-size {
+  /* อย่างน้อย 50% หรือ 500px */
+  width: max(50%, 500px);
+}</code></pre>
+
+        <div class="demo">
+          <div class="advanced-units-demo">
+            <div class="viewport-demo">5vw ความกว้าง</div>
+            <div class="calc-demo">calc(100% - 50px)</div>
+            <div class="clamp-demo">clamp(1rem, 3vw, 2rem)</div>
+          </div>
+        </div>
+      </div>
+      <!-- Back to Top -->
+      <div class="back-to-top">
+        <a href="#introduction" class="back-to-top-btn">🔝 กลับสู่หน้าแรก</a>
+      </div>
+    </section>
+
+    <br />
+    <!-- Transform & Transition -->
+    <section id="transform">
+      <h2>Transform & Transition - เอฟเฟกต์เคลื่อนไหว</h2>
+
+      <div class="transform-example">
+        <h3>Transform</h3>
+        <p>เปลี่ยนรูปร่าง ขนาด หรือตำแหน่งของ element โดยไม่กระทบ layout</p>
+
+        <h4>Scale</h4>
+        <pre><code>.movie-card:hover {
+  transform: scale(1.05);
+}</code></pre>
+
+        <h4>Rotate</h4>
+        <pre><code>.rotate-icon {
+  transform: rotate(45deg);
+}</code></pre>
+
+        <h4>Translate</h4>
+        <pre><code>.slide-up {
+  transform: translateY(-10px);
+}</code></pre>
+
+        <h4>Skew</h4>
+        <pre><code>.skewed-card {
+  transform: skew(10deg);
+}</code></pre>
+
+        <h3>Transition</h3>
+        <p>ทำให้การเปลี่ยนแปลง properties เกิดขึ้นอย่างนุ่มนวล</p>
+
+        <pre><code>.movie-card {
+ /* ค่าเริ่มต้น */
+ transform: scale(1);
+ opacity: 0.8;
+ /* transition: property duration timing-function delay */
+ transition: all 0.3s ease-in-out;
+}
+
+.movie-card:hover {
+ /* ค่าเมื่อ hover */
+ transform: translateY(-8px) scale(1.02);
+ opacity: 1;
+ box-shadow: 0 20px 40px rgba(249, 138, 199, 0.3);
+}</code></pre>
+
+        <div class="demo">
+          <div class="transform-demo">
+            <div class="demo-scale">Scale (Hover)</div>
+            <div class="demo-rotate">Rotate (Hover)</div>
+            <div class="demo-translate">Translate (Hover)</div>
+            <div class="demo-skew">Skew (Hover)</div>
+            <div class="demo-movie-card">Movie Card (Hover)</div>
+          </div>
+        </div>
+      </div>
+      <!-- Back to Top -->
+      <div class="back-to-top">
+        <a href="#introduction" class="back-to-top-btn">🔝 กลับสู่หน้าแรก</a>
+      </div>
+    </section>
+
+    <br />
+    <!-- CSS Animations & Keyframes -->
+    <section id="animations">
+      <h2>CSS Animations & Keyframes</h2>
+
+      <div class="animations-example">
+        <h3>Keyframes Animation</h3>
+        <p>
+          กำหนดการเคลื่อนไหวแบบซับซ้อนได้ โดยระบุสถานะ (keyframes)
+          ในช่วงเวลาต่างๆ
+        </p>
+
+        <pre><code>/* กำหนด keyframes */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* ใช้งาน animation */
+.floating-card {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* animation: name duration timing-function
+   delay iteration-count direction
+   fill-mode play-state */</code></pre>
+
+        <h3>ตัวอย่าง Animation</h3>
+
+        <pre><code>/* Loading Spinner */
+.loading-spinner {
+ width: 40px;
+ height: 40px;
+ border: 4px solid #333;
+ border-top: 4px solid #f98ac7;
+ border-radius: 50%;
+ animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+ from { transform: rotate(0deg); }
+ to { transform: rotate(360deg); }
+}
+
+/* Fade In Animation */
+.fade-in {
+ opacity: 0;
+ animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+ from {
+ opacity: 0;
+ transform: translateY(30px);
+ }
+ to {
+ opacity: 1;
+ transform: translateY(0);
+ }
+}
+
+/* Pulse Animation */
+.pulse {
+ animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+ 0% { transform: scale(1); }
+ 50% { transform: scale(1.05); }
+ 100% { transform: scale(1); }
+}</code></pre>
+
+        <div class="demo">
+          <div class="animations-demo">
+            <div class="demo-float">Float Animation</div>
+            <div class="demo-spinner">Loading...</div>
+            <div class="demo-fade-in">Fade In</div>
+            <div class="demo-pulse">Pulse</div>
+          </div>
+        </div>
+      </div>
+      <!-- Back to Top -->
+      <div class="back-to-top">
+        <a href="#introduction" class="back-to-top-btn">🔝 กลับสู่หน้าแรก</a>
+      </div>
+    </section>
+
+    <br />
+    <!-- Complete Movie Card Component -->
+    <section id="movie-component">
+      <h2>Complete Movie Card Component</h2>
+
+      <div class="movie-component-example">
+        <p>
+          Movie Card Component นี้รวมทุกเทคนิคที่เราได้เรียนรู้มา
+          สามารถนำไปใช้เป็นองค์ประกอบหลักในโปรเจ็ค Movie Discover ได้ทันที
+        </p>
+
+        <h3>🎯 โค้ดนี้เป็นการผสมผสานทุกแนวคิดที่สำคัญ:</h3>
+        <ul class="concept-list">
+          <li>✅ <strong>Box Model</strong></li>
+          <li>✅ <strong>Position</strong></li>
+          <li>✅ <strong>Transform & Transition</strong></li>
+          <li>✅ <strong>Overflow & Object-Fit</strong></li>
+          <li>✅ <strong>CSS Variables</strong></li>
+          <li>✅ <strong>Advanced Layout</strong></li>
+        </ul>
+
+        <pre><code>/* Movie Card Component */
+            .movie-card-demo {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: var(--space-xl);
+                background: rgba(0, 0, 0, 0.3);
+                border-radius: 12px;
+                margin: var(--space-md) 0;
+                min-height: 400px;
+                width: 100%;
+            }
+            
+            .movie-card {
+                /* Layout */
+                width: 280px;
+                min-width: 280px;
+                min-height: 420px;
+                position: relative;
+                overflow: hidden;
+                cursor: pointer;
+                flex-shrink: 0;
+                display: flex;
+                flex-direction: column;
+                
+                /* Styling */
+                background: var(--surface-color);
+                border-radius: 12px;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+                
+                /* Animation */
+                transition: all 0.3s ease;
+                transform: translateY(0);
+            }
+            
+            .movie-card:hover {
+                transform: translateY(-8px) scale(1.02);
+                box-shadow: 0 20px 40px rgba(249, 138, 199, 0.3);
+            }
+            
+            .movie-poster {
+                position: relative;
+                width: 100%;
+                height: 250px;
+                overflow: hidden;
+                flex-shrink: 0;
+            }
+            
+            .movie-poster img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.5s ease;
+            }
+            
+            .movie-card:hover .movie-poster img {
+                transform: scale(1.1);
+            }
+            
+            .movie-info {
+                padding: var(--space-md);
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+            
+            .movie-title {
+                margin: 0 0 8px 0;
+                font-size: 1.2rem;
+                color: var(--text-primary);
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            
+            .movie-year {
+              color: var(--text-secondary);
+              font-size: 14px;
+              margin: 0 0 8px 0;
+            }
+            
+            .movie-description {
+              color: var(--text-secondary);
+              font-size: 13px;
+              line-height: 1.4;
+              margin: 8px 0 0 0;
+              display: -webkit-box;
+              -webkit-line-clamp: 4;
+              -webkit-box-orient: vertical;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              flex: 1;
+            }
+            
+            .movie-rating {
+                position: absolute;
+                top: 8px;
+                right: 8px;
+                z-index: 3;
+                background: rgba(255, 215, 0, 0.9);
+                padding: 4px 8px;
+                border-radius: 6px;
+                font-size: 12px;
+                font-weight: bold;
+                color: #000;
+            }
+            
+            .demo-controls {
+                text-align: center;
+                margin-top: var(--space-lg);
+            }
+            
+            .demo-note {
+                color: #94a3b8;
+                font-size: 0.85rem;
+                margin-top: var(--space-sm);
+                font-style: italic;
+            }</code></pre>
+
+        <div class="demo">
+          <div class="movie-card-demo">
+            <div class="movie-card" id="demoMovieCard">
+              <div class="movie-poster">
+                <img src="./assets/images/image.jpeg" alt="Movie Poster" />
+                <div class="movie-rating">⭐ 8.5</div>
+              </div>
+              <div class="movie-info">
+                <h3 class="movie-title">Loading...</h3>
+                <p class="movie-year">Loading...</p>
+                <p class="movie-description">Loading description...</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="demo-controls">
+            <button onclick="loadMovieData()" class="demo-button">
+              🎬 โหลดข้อมูลหนังจริง
+            </button>
+            <p class="demo-note">* ข้อมูลจาก TMDb API</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Back to Top -->
+      <div class="back-to-top">
+        <a href="#introduction" class="back-to-top-btn">🔝 กลับสู่หน้าแรก</a>
+      </div>
+    </section>
+
+    <br />
+  </body>
+</html>

@@ -1,0 +1,346 @@
+/* ========================================
+   MOVIE DETAILS PAGE - BASIC STYLING
+   🎯 LEARNING EXERCISE: Students can customize this!
+   ======================================== */
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Simple Variables for Students to Practice */
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --background-color: #f8f9fa;
+    --text-color: #212529;
+    --border-color: #dee2e6;
+    --spacing: 1rem;
+}
+
+/* Base Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Container for Consistent Layout */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing);
+}
+
+/* ========================================
+   HEADER SECTION
+   🎯 TODO: Students can style this better!
+   ======================================== */
+.header {
+    background-color: #ffffff;
+    border-bottom: 1px solid var(--border-color);
+    padding: var(--spacing) 0;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h1 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+.header nav a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.header nav a:hover {
+    color: var(--primary-color);
+}
+
+/* ========================================
+   LOADING STATE
+   🎯 TODO: Students can create better loading animations!
+   ======================================== */
+.loading {
+    text-align: center;
+    padding: 3rem;
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+}
+
+/* ========================================
+   MOVIE HERO SECTION
+   🎯 TODO: Students should improve this layout!
+   ======================================== */
+.movie-hero {
+    display: flex;
+    gap: 2rem;
+    margin: 2rem 0;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+/* Movie Poster */
+.movie-poster {
+    flex-shrink: 0;
+}
+
+.movie-poster img {
+    width: 300px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Movie Information */
+.movie-info {
+    flex: 1;
+}
+
+.movie-info h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+/* Movie Meta Information */
+.movie-meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+}
+
+/* Movie Genres */
+.movie-genres {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.genre {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+}
+
+/* Movie Description */
+.movie-description {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+}
+
+/* Movie Actions */
+.movie-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+/* ========================================
+   BUTTONS
+   🎯 TODO: Students can design better buttons!
+   ======================================== */
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--secondary-color);
+    border: 2px solid var(--secondary-color);
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn-secondary:hover {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+/* ========================================
+   DETAILS SECTION
+   🎯 TODO: Students can create better grid layouts!
+   ======================================== */
+.movie-details-section {
+    margin: 2rem 0;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.movie-details-section h2 {
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.detail-item strong {
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.detail-item span {
+    color: var(--secondary-color);
+}
+
+/* ========================================
+   CAST SECTION
+   🎯 TODO: Students can improve cast member styling!
+   ======================================== */
+.cast-section {
+    margin: 2rem 0;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.cast-section h2 {
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+}
+
+.cast-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.cast-member {
+    text-align: center;
+    width: 100px;
+}
+
+.cast-member img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--border-color);
+    margin-bottom: 0.5rem;
+}
+
+.cast-member span {
+    font-size: 0.8rem;
+    color: var(--secondary-color);
+    display: block;
+}
+
+/* ========================================
+   FOOTER
+   🎯 TODO: Students can style this better!
+   ======================================== */
+.footer {
+    background-color: #ffffff;
+    border-top: 1px solid var(--border-color);
+    padding: 2rem 0;
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.footer p {
+    color: var(--secondary-color);
+    font-size: 0.9rem;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   🎯 TODO: Students should improve mobile layout!
+   ======================================== */
+@media (max-width: 768px) {
+    .movie-hero {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .movie-poster img {
+        width: 250px;
+    }
+    
+    .movie-meta {
+        justify-content: center;
+    }
+    
+    .movie-genres {
+        justify-content: center;
+    }
+    
+    .movie-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .details-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .cast-list {
+        justify-content: center;
+    }
+}
+
+/* ========================================
+   LEARNING HINTS FOR STUDENTS
+   🎯 Areas students can improve:
+   
+   1. COLORS & THEME:
+      - Add dark mode support
+      - Create better color schemes
+      - Add gradients and animations
+   
+   2. LAYOUT:
+      - Improve responsive design
+      - Add CSS Grid advanced layouts
+      - Better spacing and typography
+   
+   3. INTERACTIONS:
+      - Add hover effects
+      - Create loading animations
+      - Add transitions and transforms
+   
+   4. ADVANCED STYLING:
+      - Add backdrop images
+      - Create card-based designs
+      - Implement modern UI patterns
+   ======================================== */

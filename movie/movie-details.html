@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>รายละเอียดหนัง - Movie Discover</title>
+    <link rel="stylesheet" href="movie.style.css">
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <h1>🎬 Movie Discover</h1>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">หน้าแรก</a>
+                <a href="#" class="nav-link">หมวดหมู่</a>
+                <a href="#" class="nav-link">เกี่ยวกับ</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Movie Details -->
+    <main class="movie-details-container">
+        <!-- Back Button -->
+        <div class="back-button-container">
+            <button class="back-btn" onclick="history.back()">
+                ← กลับไปหน้าหลัก
+            </button>
+        </div>
+
+        <!-- Loading State -->
+        <div class="loading" id="detailsLoading">
+            <div class="loading-spinner"></div>
+            <p>กำลังโหลดรายละเอียด...</p>
+        </div>
+
+        <!-- Movie Details Content -->
+        <div class="movie-details" id="movieDetailsContent" style="display: none;">
+            <div class="movie-hero">
+                <div class="movie-poster">
+                    <img id="moviePoster" src="" alt="Movie Poster">
+                </div>
+                <div class="movie-info">
+                    <h1 class="movie-title" id="movieTitle">ชื่อหนัง</h1>
+                    <div class="movie-meta">
+                        <span class="movie-year" id="movieYear">2024</span>
+                        <span class="movie-rating">⭐ 8.5</span>
+                        <span class="movie-duration">120 นาที</span>
+                    </div>
+                    <div class="movie-genres">
+                        <span class="genre-tag">แอ็คชั่น</span>
+                        <span class="genre-tag">ผจญภัย</span>
+                        <span class="genre-tag">ไซไฟ</span>
+                    </div>
+                    <p class="movie-description" id="movieDescription">
+                        คำอธิบายหนังจะแสดงที่นี่...
+                    </p>
+                    <div class="movie-actions">
+                        <button class="primary-btn">
+                            ▶ ดูตัวอย่าง
+                        </button>
+                        <button class="secondary-btn">
+                            ♡ เพิ่มในรายการโปรด
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Information -->
+            <div class="movie-additional-info">
+                <div class="info-section">
+                    <h3>นักแสดงนำ</h3>
+                    <div class="cast-list">
+                        <div class="cast-member">
+                            <img src="https://via.placeholder.com/80x80" alt="Actor">
+                            <span>John Doe</span>
+                        </div>
+                        <div class="cast-member">
+                            <img src="https://via.placeholder.com/80x80" alt="Actor">
+                            <span>Jane Smith</span>
+                        </div>
+                        <div class="cast-member">
+                            <img src="https://via.placeholder.com/80x80" alt="Actor">
+                            <span>Bob Johnson</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <h3>รายละเอียดเพิ่มเติม</h3>
+                    <div class="details-grid">
+                        <div class="detail-item">
+                            <strong>ผู้กำกับ:</strong>
+                            <span>Christopher Nolan</span>
+                        </div>
+                        <div class="detail-item">
+                            <strong>ประเทศ:</strong>
+                            <span>สหรัฐอมेरิกา</span>
+                        </div>
+                        <div class="detail-item">
+                            <strong>ภาษา:</strong>
+                            <span>อังกฤษ</span>
+                        </div>
+                        <div class="detail-item">
+                            <strong>วันที่เข้าฉาย:</strong>
+                            <span id="releaseDate">15 มีนาคม 2024</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Movie Discover. สร้างสำหรับ Workshop Basic CSS</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript ไว้ข้างล่างสุด เพื่อให้:
+         - DOM elements (movieTitle, moviePoster, etc.) โหลดเสร็จก่อน
+         - JavaScript สามารถ manipulate DOM ได้ทันที
+         - Page แสดงเนื้อหาเร็วขึ้น (Performance) -->
+    <script src="movie-details.js"></script>
+</body>
+</html>

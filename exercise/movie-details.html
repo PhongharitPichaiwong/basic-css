@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Details - Layout Exercise</title>
+    <link rel="stylesheet" href="movie-details.style.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="container">
+        <h1>🎬 Movie Details</h1>
+        <nav>
+          <a href="index.html">← Back to Layout Exercise</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Loading State -->
+    <div class="loading" id="loading">
+      <p>Loading movie details...</p>
+    </div>
+
+    <!-- Movie Details Content -->
+    <main class="movie-details" id="movieDetails" style="display: none">
+      <div class="container">
+        <!-- Movie Hero Section -->
+        <section class="movie-hero">
+          <div class="movie-poster">
+            <img id="moviePoster" src="" alt="Movie Poster" />
+          </div>
+          <div class="movie-info">
+            <h1 id="movieTitle">Movie Title</h1>
+            <div class="movie-meta">
+              <span id="movieYear">2024</span>
+              <span id="movieRating">⭐ 8.5</span>
+              <span id="movieDuration">120 min</span>
+            </div>
+            <div class="movie-genres" id="movieGenres">
+              <span class="genre">Action</span>
+              <span class="genre">Adventure</span>
+            </div>
+            <p id="movieDescription" class="movie-description">
+              Movie description will appear here...
+            </p>
+            <div class="movie-actions">
+              <button class="btn-primary">Watch Trailer</button>
+              <button class="btn-secondary">Add to Favorites</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Additional Details -->
+        <section class="movie-details-section">
+          <h2>Movie Information</h2>
+          <div class="details-grid" id="detailsGrid">
+            <div class="detail-item">
+              <strong>Director:</strong>
+              <span id="movieDirector">Director Name</span>
+            </div>
+            <div class="detail-item">
+              <strong>Release Date:</strong>
+              <span id="movieReleaseDate">Release Date</span>
+            </div>
+            <div class="detail-item">
+              <strong>Countries:</strong>
+              <span id="movieCountries">Countries</span>
+            </div>
+            <div class="detail-item">
+              <strong>Languages:</strong>
+              <span id="movieLanguages">Languages</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Cast Section -->
+        <section class="cast-section">
+          <h2>Main Cast</h2>
+          <div class="cast-list" id="castList">
+            <div class="cast-member">
+              <img src="https://via.placeholder.com/100x100" alt="Actor" />
+              <span>Actor Name</span>
+            </div>
+            <div class="cast-member">
+              <img src="https://via.placeholder.com/100x100" alt="Actor" />
+              <span>Actor Name</span>
+            </div>
+            <div class="cast-member">
+              <img src="https://via.placeholder.com/100x100" alt="Actor" />
+              <span>Actor Name</span>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2024 Movie Layout Exercise - CSS Learning Project</p>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="movie-details.js"></script>
+  </body>
+</html>

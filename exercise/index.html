@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Layout Exercise - Grid & Flexbox</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js?v=2"></script>
+  </head>
+  <body>
+    <!-- Grid Layout Container -->
+    <div class="layout-container">
+      <!-- Header -->
+      <header class="header">
+        <div class="header-content">
+          <h1>Movie Layout Exercise</h1>
+          <p>CSS Grid & Flexbox Demonstration</p>
+        </div>
+      </header>
+
+      <!-- Sidebar Navigation -->
+      <aside class="sidebar">
+        <nav class="sidebar-nav">
+          <h3>Navigation</h3>
+          <div>Home (Test)</div>
+          <div>Movies (Test)</div>
+          <div>Categories (Test)</div>
+          <div>Favorites (Test)</div>
+          <div>Watchlist (Test)</div>
+          <div>Profile (Test)</div>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#movies">Movies</a></li>
+            <li><a href="#categories">Categories</a></li>
+            <li><a href="#favorites">Favorites</a></li>
+            <li><a href="#watchlist">Watchlist</a></li>
+            <li><a href="#profile">Profile</a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Category Tags with Flexbox -->
+        <section class="categories-section">
+          <h2>Movie Categories</h2>
+          <div class="category-tags">
+            <span class="category-tag">Action</span>
+            <span class="category-tag">Adventure</span>
+            <span class="category-tag">Comedy</span>
+            <span class="category-tag">Drama</span>
+            <span class="category-tag">Horror</span>
+            <span class="category-tag">Romance</span>
+            <span class="category-tag">Sci-Fi</span>
+            <span class="category-tag">Thriller</span>
+            <span class="category-tag">Animation</span>
+            <span class="category-tag">Documentary</span>
+          </div>
+        </section>
+
+        <!-- Movies Grid -->
+        <section class="movies-section">
+          <h2>Featured Movies</h2>
+          <div class="movies-grid">
+            <!-- Movie Card 1 -->
+            <div class="movie-card" data-movie-id="550">
+              <div class="movie-poster">
+                <img
+                  src="https://image.tmdb.org/t/p/w500/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg"
+                  alt="Fight Club"
+                  loading="lazy"
+                />
+                <div class="movie-rating">⭐ 8.8</div>
+              </div>
+              <div class="movie-info">
+                <h3 class="movie-title">Fight Club</h3>
+                <p class="movie-year">1999</p>
+                <p class="movie-description">
+                  A depressed man meets a soap maker and forms an underground
+                  fight club.
+                </p>
+              </div>
+            </div>
+
+            <!-- Movie Card 2 -->
+            <div class="movie-card" data-movie-id="13">
+              <div class="movie-poster">
+                <img
+                  src="https://image.tmdb.org/t/p/w500/3bhkrj58Vtu7enYsRolD1fZdja1.jpg"
+                  alt="Forrest Gump"
+                  loading="lazy"
+                />
+                <div class="movie-rating">⭐ 8.6</div>
+              </div>
+              <div class="movie-info">
+                <h3 class="movie-title">Forrest Gump</h3>
+                <p class="movie-year">1994</p>
+                <p class="movie-description">
+                  The presidencies of Kennedy and Johnson through the eyes of an
+                  Alabama man.
+                </p>
+              </div>
+            </div>
+
+            <!-- Movie Card 3 -->
+            <div class="movie-card" data-movie-id="278">
+              <div class="movie-poster">
+                <img
+                  src="https://image.tmdb.org/t/p/w500/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg"
+                  alt="The Shawshank Redemption"
+                  loading="lazy"
+                />
+                <div class="movie-rating">⭐ 9.3</div>
+              </div>
+              <div class="movie-info">
+                <h3 class="movie-title">The Shawshank Redemption</h3>
+                <p class="movie-year">1994</p>
+                <p class="movie-description">
+                  Two imprisoned men bond over years, finding solace and
+                  redemption.
+                </p>
+              </div>
+            </div>
+
+            <!-- Movie Card 4 -->
+            <div class="movie-card" data-movie-id="238">
+              <div class="movie-poster">
+                <img
+                  src="https://image.tmdb.org/t/p/w500/3xKBPTFhI7d4aK8KLFWAhHCyUKV.jpg"
+                  alt="The Godfather"
+                  loading="lazy"
+                />
+                <div class="movie-rating">⭐ 9.2</div>
+              </div>
+              <div class="movie-info">
+                <h3 class="movie-title">The Godfather</h3>
+                <p class="movie-year">1972</p>
+                <p class="movie-description">
+                  The aging patriarch transfers control to his reluctant son.
+                </p>
+              </div>
+            </div>
+
+            <!-- Movie Card 5 -->
+            <div class="movie-card" data-movie-id="424">
+              <div class="movie-poster">
+                <img
+                  src="https://image.tmdb.org/t/p/w500/6oom5QYQ2yQTMJIbnvbkBL9cHo6.jpg"
+                  alt="Schindler's List"
+                  loading="lazy"
+                />
+                <div class="movie-rating">⭐ 8.9</div>
+              </div>
+              <div class="movie-info">
+                <h3 class="movie-title">Schindler's List</h3>
+                <p class="movie-year">1993</p>
+                <p class="movie-description">
+                  A businessman saves the lives of more than a thousand
+                  refugees.
+                </p>
+              </div>
+            </div>
+
+            <!-- Movie Card 6 -->
+            <div class="movie-card" data-movie-id="680">
+              <div class="movie-poster">
+                <img
+                  src="https://image.tmdb.org/t/p/w500/39wmItIWsg5sZMyRUHLkWBcuVCM.jpg"
+                  alt="Pulp Fiction"
+                  loading="lazy"
+                />
+                <div class="movie-rating">⭐ 8.9</div>
+              </div>
+              <div class="movie-info">
+                <h3 class="movie-title">Pulp Fiction</h3>
+                <p class="movie-year">1994</p>
+                <p class="movie-description">
+                  The lives of two mob hitmen, a boxer, and others intertwine.
+                </p>
+              </div>
+            </div>
+
+            <!-- Movie Card 7 -->
+            <div class="movie-card" data-movie-id="155">
+              <div class="movie-poster">
+                <img
+                  src="https://image.tmdb.org/t/p/w500/rCzpDGLbOoPwLjy3OAm5NUPOTrC.jpg"
+                  alt="The Dark Knight"
+                  loading="lazy"
+                />
+                <div class="movie-rating">⭐ 9.0</div>
+              </div>
+              <div class="movie-info">
+                <h3 class="movie-title">The Dark Knight</h3>
+                <p class="movie-year">2008</p>
+                <p class="movie-description">
+                  Batman raises the stakes in his war on crime.
+                </p>
+              </div>
+            </div>
+
+            <!-- Movie Card 8 -->
+            <div class="movie-card" data-movie-id="244786">
+              <div class="movie-poster">
+                <img
+                  src="https://image.tmdb.org/t/p/w500/qmDpIHrmpJINaRKAfWQfftjCdyi.jpg"
+                  alt="Whiplash"
+                  loading="lazy"
+                />
+                <div class="movie-rating">⭐ 8.5</div>
+              </div>
+              <div class="movie-info">
+                <h3 class="movie-title">Whiplash</h3>
+                <p class="movie-year">2014</p>
+                <p class="movie-description">
+                  A promising young drummer enrolls at a cut-throat music
+                  conservatory.
+                </p>
+              </div>
+            </div>
+
+            <!-- Movie Card 9 -->
+            <div class="movie-card" data-movie-id="389">
+              <div class="movie-poster">
+                <img
+                  src="https://image.tmdb.org/t/p/w500/9O7gLzmreU0nGkIB6K3BsJbzvNv.jpg"
+                  alt="12 Angry Men"
+                  loading="lazy"
+                />
+                <div class="movie-rating">⭐ 8.9</div>
+              </div>
+              <div class="movie-info">
+                <h3 class="movie-title">12 Angry Men</h3>
+                <p class="movie-year">1957</p>
+                <p class="movie-description">
+                  A jury holdout attempts to prevent a miscarriage of justice.
+                </p>
+              </div>
+            </div>
+
+            <!-- Movie Card 10 -->
+            <div class="movie-card" data-movie-id="129">
+              <div class="movie-poster">
+                <img
+                  src="https://image.tmdb.org/t/p/w500/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg"
+                  alt="Spirited Away"
+                  loading="lazy"
+                />
+                <div class="movie-rating">⭐ 8.6</div>
+              </div>
+              <div class="movie-info">
+                <h3 class="movie-title">Spirited Away</h3>
+                <p class="movie-year">2001</p>
+                <p class="movie-description">
+                  A girl enters a world ruled by gods and witches.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="footer-content">
+          <p>&copy; 2024 Movie Layout Exercise</p>
+          <p>CSS Grid & Flexbox Learning</p>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Show Toast notification function -->
+    <script>
+      function showToast(message) {
+        // Create toast element
+        const toast = document.createElement("div");
+        toast.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: rgba(0, 0, 0, 0.8);
+                color: white;
+                padding: 12px 20px;
+                border-radius: 8px;
+                z-index: 1000;
+                font-size: 14px;
+                border: 1px solid #333;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            `;
+        toast.textContent = message;
+
+        document.body.appendChild(toast);
+
+        // Remove after 3 seconds
+        setTimeout(() => {
+          if (toast.parentNode) {
+            toast.parentNode.removeChild(toast);
+          }
+        }, 3000);
+      }
+
+      // Add click event to movie cards to open movie details
+      document.addEventListener("DOMContentLoaded", function () {
+        const movieCards = document.querySelectorAll(".movie-card");
+        movieCards.forEach((card) => {
+          card.addEventListener("click", function () {
+            const movieId = this.getAttribute("data-movie-id");
+            const title = this.querySelector(".movie-title").textContent;
+
+            if (movieId) {
+              // Save movie ID to localStorage and navigate to details page
+              localStorage.setItem("selectedMovieId", movieId);
+              window.location.href = `movie-details.html?id=${movieId}`;
+            } else {
+              showToast(`Clicked on: ${title} (No movie ID available)`);
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

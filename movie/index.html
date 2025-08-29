@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Discover amazing movies from around the world. Find new releases and classics from our curated movie database."
+    />
+    <meta
+      name="keywords"
+      content="movies, cinema, film, entertainment, TMDb, movie database"
+    />
+    <meta name="author" content="Movie Discover" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta
+      property="og:title"
+      content="Movie Discover - Find Your Next Favorite Film"
+    />
+    <meta
+      property="og:description"
+      content="Discover amazing movies from our curated collection of new releases and timeless classics"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://movie-discover.example.com" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Movie Discover - Find Your Next Favorite Film"
+    />
+    <meta
+      name="twitter:description"
+      content="Discover amazing movies from our curated collection"
+    />
+
+    <!-- Favicon and PWA -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#e50914" />
+
+    <title>Movie Discover - Find Your Next Favorite Film</title>
+    <link rel="stylesheet" href="movie.style.css?v=7" />
+  </head>
+  <body>
+    <!-- Header Navigation -->
+    <header class="header" role="banner">
+      <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="logo">
+          <h1>🎬 Movie Discover</h1>
+        </div>
+        <div class="nav-links">
+          <a href="#" class="nav-link active" aria-current="page">Home</a>
+          <a href="#" class="nav-link">Categories</a>
+          <a href="#" class="nav-link">About</a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content" role="main">
+      <section class="movies-section" aria-labelledby="movies-heading">
+        <h2 class="section-title" id="movies-heading">Featured Movies</h2>
+
+        <!-- Loading State -->
+        <div
+          class="loading"
+          id="loading"
+          aria-live="polite"
+          aria-label="Loading content"
+        >
+          <div class="loading-spinner" aria-hidden="true"></div>
+          <p>Loading movies...</p>
+        </div>
+
+        <!-- Movies Grid -->
+        <div
+          class="movies-grid"
+          id="moviesGrid"
+          role="grid"
+          aria-label="Movies list"
+          aria-live="polite"
+        >
+          <!-- Movie cards will be dynamically inserted here -->
+        </div>
+
+        <!-- Load More Button -->
+        <div class="load-more-container">
+          <button
+            class="load-more-btn"
+            id="loadMoreBtn"
+            type="button"
+            aria-label="Load more movies"
+          >
+            Load More
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <p>
+          &copy; 2024 Movie Discover. Built for learning modern CSS techniques
+        </p>
+      </div>
+    </footer>
+
+    <!-- JavaScript ไว้ข้างล่างสุด เพื่อให้:
+         1. DOM elements โหลดเสร็จก่อน JavaScript ทำงาน
+         2. Performance ดีขึ้น - แสดงเนื้อหาก่อนโหลด script
+         3. ไม่ต้องใช้ DOMContentLoaded event listener
+         4. app.js สามารถหา getElementById ได้ทันที -->
+    <script src="app.js"></script>
+  </body>
+</html>
