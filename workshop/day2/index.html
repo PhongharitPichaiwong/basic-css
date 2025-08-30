@@ -1,0 +1,2455 @@
+<!DOCTYPE html>
+<html lang="th">
+  <!-- head section -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- browser tab title -->
+    <title>CSS Best Practices & Industry Methodologies - Day 2 Workshop</title>
+
+    <!-- external CSS -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- external JavaScript -->
+    <script src="script.js"></script>
+
+    <!-- internal CSS -->
+    <style>
+      h1 {
+        color: #f59e0b;
+      }
+    </style>
+  </head>
+
+  <!-- body section -->
+  <body>
+    <!-- Introduction -->
+    <section id="introduction">
+      <h1>
+        🏢 CSS Like the Pros: Best Practices from Netflix, Airbnb & Spotify
+      </h1>
+      <p class="intro-subtitle">
+        เรียนรู้ CSS Methodologies และ Best Practices
+        ที่ใช้งานจริงในบริษัทเทคโนโลยีชั้นนำทั่วโลก
+      </p>
+
+      <!-- Navigation Menu -->
+      <nav class="workshop-nav">
+        <div class="nav-grid">
+          <a href="#bem-methodology" class="nav-item">
+            <span class="nav-number">01</span>
+            <span class="nav-title">BEM Methodology</span>
+            <span class="nav-desc"
+              >Block Element Modifier - Used by Airbnb, Yandex</span
+            >
+          </a>
+          <a href="#smacss" class="nav-item">
+            <span class="nav-number">02</span>
+            <span class="nav-title">SMACSS Architecture</span>
+            <span class="nav-desc">Scalable CSS - Used by GitHub</span>
+          </a>
+          <a href="#atomic-css" class="nav-item">
+            <span class="nav-number">03</span>
+            <span class="nav-title">Atomic CSS</span>
+            <span class="nav-desc"
+              >Utility-First Approach - Used by Tailwind</span
+            >
+          </a>
+          <a href="#design-tokens" class="nav-item">
+            <span class="nav-number">04</span>
+            <span class="nav-title">Design Tokens</span>
+            <span class="nav-desc">Netflix & Spotify's Design System</span>
+          </a>
+          <a href="#component-system" class="nav-item">
+            <span class="nav-number">05</span>
+            <span class="nav-title">Component Systems</span>
+            <span class="nav-desc">Modern CSS Architecture</span>
+          </a>
+          <a href="#css-variables" class="nav-item">
+            <span class="nav-number">06</span>
+            <span class="nav-title">CSS Custom Properties</span>
+            <span class="nav-desc">Dynamic Theming & Scalability</span>
+          </a>
+          <a href="#naming-conventions" class="nav-item">
+            <span class="nav-number">07</span>
+            <span class="nav-title">Naming Conventions</span>
+            <span class="nav-desc">Professional CSS Structure</span>
+          </a>
+          <a href="#performance" class="nav-item">
+            <span class="nav-number">08</span>
+            <span class="nav-title">Performance Best Practices</span>
+            <span class="nav-desc">Production-Ready CSS</span>
+          </a>
+        </div>
+      </nav>
+
+      <!-- Learning Outcomes -->
+      <div class="learning-outcomes">
+        <h3>🎯 สิ่งที่จะได้เรียนรู้:</h3>
+        <ul>
+          <li>
+            📈 <strong>Career-Ready Skills</strong> - เทคนิคที่นายจ้างคาดหวัง
+          </li>
+          <li>
+            🔧 <strong>Real-World Application</strong> - รีแฟคเตอร์โปรเจ็กต์จริง
+          </li>
+          <li>
+            🌍 <strong>Industry Standards</strong> - เรียนรู้จากบริษัทพันล้าน
+          </li>
+          <li>
+            📚 <strong>Scalable Thinking</strong> -
+            เตรียมพร้อมสำหรับโปรเจ็กต์ขนาดใหญ่
+          </li>
+          <li>
+            🏆 <strong>Professional Portfolio</strong> - โค้ดคุณภาพระดับ Senior
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 1. BEM Methodology -->
+    <section id="bem-methodology">
+      <h2>01. BEM Methodology - Block Element Modifier</h2>
+
+      <div class="concept-overview">
+        <h3>🏢 ใช้โดยบริษัท: Airbnb, Yandex, BBC, Tesla, Samsung</h3>
+        <p>
+          BEM คือ naming convention ที่ได้รับความนิยมมากที่สุดในโลก ช่วยให้โค้ด
+          CSS มีโครงสร้างที่ชัดเจน อ่านง่าย และบำรุงรักษาได้
+        </p>
+      </div>
+
+      <div class="theory-section">
+        <h3>📚 ทฤษฎี BEM</h3>
+
+        <div class="bem-explanation">
+          <p>
+            <strong>BEM (Block, Element, Modifier)</strong> คือ
+            ระเบียบการตั้งชื่อคลาสใน CSS ที่ช่วยให้โค้ดของคุณชัดเจน,
+            จัดระเบียบได้ง่าย, และบำรุงรักษาได้ดีขึ้นครับ
+            โดยเฉพาะในโปรเจกต์ที่มีขนาดใหญ่และซับซ้อน
+          </p>
+
+          <div class="bem-comparison">
+            <h4>🔍 ทำไม BEM ถึงดีกว่าวิธีเดิม?</h4>
+            <div class="comparison-cards">
+              <div class="old-way">
+                <h5>❌ วิธีเดิม (ปัญหา)</h5>
+                <pre><code>.movie-card .title {
+  font-size: 24px;
+  color: #333;
+}</code></pre>
+                <p>
+                  <strong>ปัญหาของ <code>.movie-card .title</code>:</strong>
+                </p>
+                <ul>
+                  <li>
+                    <strong>Specificity สูงเกินไป</strong> - ยากต่อการ override
+                  </li>
+                  <li>
+                    <strong>พึ่งพา HTML structure</strong> - ถ้า HTML เปลี่ยน
+                    CSS พัง
+                  </li>
+                  <li>
+                    <strong>ไม่ชัดเจน</strong> - ไม่รู้ว่า .title เป็นของใคร
+                  </li>
+                  <li><strong>Collision</strong> - .title อาจซ้ำกับส่วนอื่น</li>
+                  <li>
+                    <strong>ยากต่อการ maintain</strong> - ต้องไล่หาใน HTML
+                  </li>
+                </ul>
+              </div>
+
+              <div class="bem-way">
+                <h5>✅ วิธี BEM (โซลูชัน)</h5>
+                <pre><code>.movie-card__title {
+  font-size: 24px;
+  color: #333;
+}</code></pre>
+                <p>
+                  <strong>ข้อดีของ <code>.movie-card__title</code>:</strong>
+                </p>
+                <ul>
+                  <li>
+                    <strong>Specificity ต่ำและสม่ำเสมอ</strong> -
+                    ง่ายต่อการจัดการ
+                  </li>
+                  <li>
+                    <strong>Independent</strong> - ไม่พึ่งพา HTML structure
+                  </li>
+                  <li>
+                    <strong>ชัดเจน</strong> - รู้ทันทีว่าเป็น title ของ
+                    movie-card
+                  </li>
+                  <li><strong>ไม่มี collision</strong> - ชื่อเป็น unique</li>
+                  <li><strong>ง่ายต่อการ maintain</strong> - ค้นหาได้ง่าย</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="specificity-demo">
+              <h5>📊 Specificity Comparison:</h5>
+
+              <div class="specificity-explanation">
+                <h6>🔢 ความหมายของตัวเลข Specificity:</h6>
+                <div class="specificity-format">
+                  <div class="spec-format-item">
+                    <span class="spec-position">0</span>
+                    <span class="spec-label">Inline Styles</span>
+                    <span class="spec-desc">style="..."</span>
+                  </div>
+                  <div class="spec-format-item">
+                    <span class="spec-position">0</span>
+                    <span class="spec-label">IDs</span>
+                    <span class="spec-desc">#header</span>
+                  </div>
+                  <div class="spec-format-item">
+                    <span class="spec-position">2</span>
+                    <span class="spec-label">Classes/Attributes</span>
+                    <span class="spec-desc">.class, [attr]</span>
+                  </div>
+                  <div class="spec-format-item">
+                    <span class="spec-position">0</span>
+                    <span class="spec-label">Elements</span>
+                    <span class="spec-desc">div, h1, p</span>
+                  </div>
+                </div>
+                <p class="format-note">
+                  <strong>รูปแบบ:</strong>
+                  <code>inline, ids, classes, elements</code>
+                </p>
+              </div>
+
+              <div class="specificity-grid">
+                <div class="spec-item">
+                  <code>.movie-card .title</code>
+                  <span class="spec-value spec-high"
+                    >Specificity: 0,0,2,0 (สูง)</span
+                  >
+                </div>
+                <div class="spec-breakdown">
+                  <span
+                    >0 inline + 0 ids + 2 classes + 0 elements = 0,0,2,0</span
+                  >
+                </div>
+
+                <div class="spec-item">
+                  <code>.movie-card__title</code>
+                  <span class="spec-value spec-low"
+                    >Specificity: 0,0,1,0 (ต่ำ)</span
+                  >
+                </div>
+                <div class="spec-breakdown">
+                  <span>0 inline + 0 ids + 1 class + 0 elements = 0,0,1,0</span>
+                </div>
+              </div>
+
+              <div class="specificity-examples">
+                <h6>📋 ตัวอย่างเพิ่มเติม:</h6>
+                <div class="spec-examples-grid">
+                  <div class="spec-example">
+                    <code>#header</code>
+                    <span class="spec-calc">0,1,0,0</span>
+                  </div>
+                  <div class="spec-example">
+                    <code>.nav ul li</code>
+                    <span class="spec-calc">0,0,1,2</span>
+                  </div>
+                  <div class="spec-example">
+                    <code>div.container p</code>
+                    <span class="spec-calc">0,0,1,2</span>
+                  </div>
+                  <div class="spec-example">
+                    <code>style="color: red"</code>
+                    <span class="spec-calc">1,0,0,0</span>
+                  </div>
+                </div>
+              </div>
+
+              <p class="spec-note">
+                <strong>หมายเหตุ:</strong> ยิ่ง Specificity สูง ยิ่งยากต่อการ
+                override ด้วย CSS อื่น ดังนั้น BEM จึงใช้ class
+                เพียงตัวเดียวเพื่อให้ Specificity ต่ำและจัดการได้ง่าย
+              </p>
+            </div>
+          </div>
+
+          <h4>🔤 ความหมายของ BEM:</h4>
+          <ul class="bem-acronym">
+            <li><strong>B</strong> = <strong>Block</strong> (บล็อก)</li>
+            <li><strong>E</strong> = <strong>Element</strong> (องค์ประกอบ)</li>
+            <li>
+              <strong>M</strong> = <strong>Modifier</strong> (ตัวปรับแต่ง)
+            </li>
+          </ul>
+
+          <div class="bem-detailed-explanation">
+            <div class="bem-concept">
+              <h4>📦 Block (บล็อก)</h4>
+              <p>
+                <strong>คืออะไร:</strong>
+                เป็นองค์ประกอบหลักที่สามารถนำมาใช้ซ้ำได้ (reusable component)
+                โดยมีหน้าที่เป็นอิสระจากส่วนอื่นๆ
+              </p>
+              <p><strong>การตั้งชื่อ:</strong> ใช้ชื่อ Block เดี่ยวๆ</p>
+              <p>
+                <strong>ตัวอย่าง:</strong> <code>movie-card</code>,
+                <code>header</code>, <code>form</code>
+              </p>
+              <div class="example-highlight">
+                <strong>ในตัวอย่างของเรา:</strong><br />
+                <code>.movie-card</code> คือ Block ที่เป็นโครงสร้างหลักของ Movie
+                Card ทั้งหมด
+              </div>
+            </div>
+
+            <div class="bem-concept">
+              <h4>🧩 Element (ส่วนประกอบ)</h4>
+              <p>
+                <strong>คืออะไร:</strong> เป็นส่วนย่อยๆ ที่ประกอบกันเป็น Block
+                ไม่สามารถมีอยู่ได้ด้วยตัวเองโดยไม่มี Block
+              </p>
+              <p>
+                <strong>การตั้งชื่อ:</strong> ใช้ชื่อ Block
+                ตามด้วยเครื่องหมายขีดล่างคู่ <code>(__)</code> และตามด้วยชื่อ
+                Element
+              </p>
+              <p class="bem-note">
+                <em
+                  >หมายเหตุ: <code>__</code> = ขีดล่างสองครั้ง (underscore
+                  สองตัว)</em
+                >
+              </p>
+              <p><strong>รูปแบบ:</strong> <code>block__element</code></p>
+              <p>
+                <strong>ตัวอย่าง:</strong> <code>movie-card__title</code>,
+                <code>movie-card__poster</code>
+              </p>
+              <div class="example-highlight">
+                <strong>ในตัวอย่างของเรา:</strong><br />
+                • <code>.movie-card__title</code> คือ
+                ส่วนประกอบที่เป็นชื่อหนัง<br />
+                • <code>.movie-card__poster</code> คือ
+                ส่วนประกอบที่เป็นโปสเตอร์หนัง<br />
+                • <code>.movie-card__poster-image</code> คือ
+                ส่วนประกอบที่เป็นรูปภาพภายใน poster
+              </div>
+
+              <div class="bem-nested-explanation">
+                <h6>
+                  🔍 คำถามที่พบบ่อย:
+                  <code>.movie-card__poster-image</code> คืออะไร?
+                </h6>
+                <p>
+                  <code>.movie-card__poster-image</code> ยังคงเป็น
+                  <strong>Element</strong> ของ Block <code>movie-card</code>
+                  ไม่ใช่ Element ของ Element นะครับ!
+                </p>
+
+                <div class="bem-structure-explanation">
+                  <div class="bem-wrong">
+                    <h6>❌ ความเข้าใจผิด:</h6>
+                    <p>
+                      คิดว่า <code>poster-image</code> เป็น Element ของ
+                      <code>poster</code>
+                    </p>
+                    <div class="nested-structure">
+                      <span class="block-name">movie-card</span>
+                      <span class="arrow">→</span>
+                      <span class="element-name">poster</span>
+                      <span class="arrow">→</span>
+                      <span class="wrong-element">image</span>
+                    </div>
+                  </div>
+
+                  <div class="bem-correct">
+                    <h6>✅ ความเข้าใจที่ถูกต้อง:</h6>
+                    <p>
+                      <code>poster-image</code> เป็น Element ของ
+                      <code>movie-card</code> ที่มีชื่อยาวหน่อย
+                    </p>
+                    <div class="flat-structure">
+                      <span class="block-name">movie-card</span>
+                      <span class="arrow">→</span>
+                      <span class="element-name">poster-image</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bem-naming-rules">
+                  <h6>📝 กฎการตั้งชื่อ BEM:</h6>
+                  <ul>
+                    <li>
+                      <strong>ไม่มี Element ของ Element:</strong> BEM
+                      ไม่อนุญาตให้ซ้อน Element
+                    </li>
+                    <li>
+                      <strong>ใช้ hyphen (-) ในชื่อ:</strong>
+                      <code>poster-image</code>, <code>action-button</code>
+                    </li>
+                    <li>
+                      <strong>Element ทุกตัวเป็นของ Block:</strong>
+                      ไม่ว่าจะยาวแค่ไหน
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="bem-examples-more">
+                  <h6>🎯 ตัวอย่างเพิ่มเติม:</h6>
+                  <div class="examples-grid">
+                    <div class="example-item">
+                      <code>.movie-card__rating-star</code>
+                      <span class="explanation">ดาวในส่วน rating</span>
+                    </div>
+                    <div class="example-item">
+                      <code>.movie-card__action-button</code>
+                      <span class="explanation">ปุ่มในส่วน action</span>
+                    </div>
+                    <div class="example-item">
+                      <code>.movie-card__genre-tag</code>
+                      <span class="explanation">แท็กประเภทหนัง</span>
+                    </div>
+                    <div class="example-item">
+                      <code>.movie-card__release-date</code>
+                      <span class="explanation">วันที่เข้าฉาย</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bem-concept">
+              <h4>🎨 Modifier (ตัวปรับแต่ง)</h4>
+              <p>
+                <strong>คืออะไร:</strong>
+                เป็นตัวกำหนดสถานะหรือรูปแบบที่แตกต่างออกไปของ Block หรือ Element
+              </p>
+              <p>
+                <strong>การตั้งชื่อ:</strong> ใช้ชื่อ Block หรือ Element
+                ตามด้วยเครื่องหมายขีดกลางคู่ <code>(--)</code> และตามด้วยชื่อ
+                Modifier
+              </p>
+              <p class="bem-note">
+                <em
+                  >หมายเหตุ: <code>--</code> = ขีดกลางสองครั้ง (hyphen
+                  สองตัว)</em
+                >
+              </p>
+              <p>
+                <strong>รูปแบบ:</strong> <code>block--modifier</code> หรือ
+                <code>block__element--modifier</code>
+              </p>
+              <p>
+                <strong>ตัวอย่าง:</strong> <code>movie-card--featured</code>,
+                <code>movie-card__rating--high</code>
+              </p>
+              <div class="example-highlight">
+                <strong>ในตัวอย่างของเรา:</strong><br />
+                • <code>.movie-card--featured</code> คือ ตัวปรับแต่งที่ทำให้
+                Block movie-card มีสไตล์พิเศษขึ้นมา<br />
+                • <code>.movie-card__rating--high</code> คือ ตัวปรับแต่งที่ทำให้
+                Element rating มีสไตล์เฉพาะเมื่อค่า Rating สูง
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bem-structure">
+          <div class="bem-block">
+            <h4>Block (บล็อก)</h4>
+            <p>ส่วนประกอบหลักที่สามารถใช้งานได้อย่างอิสระ</p>
+            <pre><code>.card { /* Block */ }</code></pre>
+          </div>
+
+          <div class="bem-element">
+            <h4>Element (องค์ประกอบ)</h4>
+            <p>ส่วนย่อยของ Block ที่ไม่สามารถใช้งานแยกได้</p>
+            <pre><code>.card__header { /* Element */ }
+.card__body { /* Element */ }
+.card__footer { /* Element */ }</code></pre>
+          </div>
+
+          <div class="bem-modifier">
+            <h4>Modifier (ตัวปรับแต่ง)</h4>
+            <p>สถานะหรือรูปแบบที่แตกต่างของ Block หรือ Element</p>
+            <pre><code>.card--featured { /* Block Modifier */ }
+.card__title--large { /* Element Modifier */ }</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-section">
+        <h3>🚀 Demo: Before vs After BEM</h3>
+
+        <div class="comparison-grid">
+          <div class="before-bem">
+            <h4>❌ Before BEM (ปัญหา)</h4>
+            <pre><code>/* ไม่ชัดเจน และซับซ้อน */
+.movie-card { }
+.movie-card .title { }
+.movie-card .poster img { }
+.movie-card.featured .title { }
+.movie-card .rating.high { }</code></pre>
+
+            <div class="old-card">
+              <div class="title">The Avengers</div>
+              <div class="poster">
+                <img
+                  src="https://image.tmdb.org/t/p/w500/RYMX2wcKCBAr24UyPD7xwmjaTn.jpg"
+                  alt="Movie Poster"
+                />
+              </div>
+              <div class="rating high">⭐ 8.0</div>
+            </div>
+          </div>
+
+          <div class="after-bem">
+            <h4>✅ After BEM (โซลูชัน)</h4>
+            <pre><code>/* ชัดเจน อ่านง่าย บำรุงรักษาได้ */
+.movie-card { }
+.movie-card__title { }
+.movie-card__poster { }
+.movie-card__poster-image { }
+.movie-card__rating { }
+.movie-card--featured { }
+.movie-card__rating--high { }</code></pre>
+
+            <div class="movie-card movie-card--featured">
+              <div class="movie-card__title">The Avengers</div>
+              <div class="movie-card__poster">
+                <img
+                  class="movie-card__poster-image"
+                  src="https://image.tmdb.org/t/p/w500/RYMX2wcKCBAr24UyPD7xwmjaTn.jpg"
+                  alt="Movie Poster"
+                />
+              </div>
+              <div class="movie-card__rating movie-card__rating--high">
+                ⭐ 8.0
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bem-benefits">
+          <h4>🎯 ประโยชน์ของ BEM:</h4>
+          <ul>
+            <li><strong>Readability</strong> - อ่านโค้ดแล้วเข้าใจทันที</li>
+            <li><strong>Reusability</strong> - ใช้ซ้ำได้ง่าย</li>
+            <li>
+              <strong>Maintainability</strong> - แก้ไขโค้ดโดยไม่กระทบส่วนอื่น
+            </li>
+            <li><strong>Team Collaboration</strong> - ทีมทำงานร่วมกันได้ดี</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="interactive-demo">
+        <h3>🎮 Interactive Demo: สร้าง Card ด้วย BEM</h3>
+        <div class="bem-builder">
+          <div class="controls">
+            <button
+              onclick="toggleBEMModifier('featured')"
+              class="btn btn--primary"
+            >
+              Toggle Featured
+            </button>
+            <button
+              onclick="toggleBEMModifier('large')"
+              class="btn btn--secondary"
+            >
+              Toggle Large Size
+            </button>
+            <button onclick="toggleBEMModifier('dark')" class="btn btn--dark">
+              Toggle Dark Theme
+            </button>
+          </div>
+
+          <div id="bem-card" class="movie-card">
+            <div class="movie-card__header">
+              <h3 class="movie-card__title">Avengers: Endgame</h3>
+              <div class="movie-card__year">2019</div>
+            </div>
+            <div class="movie-card__poster">
+              <img
+                class="movie-card__poster-image"
+                src="https://image.tmdb.org/t/p/w500/or06FN3Dka5tukK1e9sl16pB3iy.jpg"
+                alt="Avengers Endgame"
+              />
+            </div>
+            <div class="movie-card__body">
+              <div class="movie-card__rating movie-card__rating--high">
+                ⭐ 8.4
+              </div>
+              <p class="movie-card__description">
+                After the devastating events of Infinity War, the universe is in
+                ruins.
+              </p>
+            </div>
+            <div class="movie-card__footer">
+              <button
+                class="movie-card__action-btn movie-card__action-btn--primary"
+              >
+                Watch Now
+              </button>
+              <button
+                class="movie-card__action-btn movie-card__action-btn--secondary"
+              >
+                Add to List
+              </button>
+            </div>
+          </div>
+
+          <div class="code-output">
+            <h4>📝 Current CSS Classes:</h4>
+            <pre id="bem-classes-output"><code>.movie-card
+.movie-card__header
+.movie-card__title
+.movie-card__year
+.movie-card__poster
+.movie-card__poster-image
+.movie-card__body
+.movie-card__rating
+.movie-card__rating--high
+.movie-card__description
+.movie-card__footer
+.movie-card__action-btn
+.movie-card__action-btn--primary
+.movie-card__action-btn--secondary</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. SMACSS Architecture -->
+    <section id="smacss">
+      <h2>02. SMACSS Architecture - Scalable and Modular Architecture</h2>
+
+      <div class="concept-overview">
+        <h3>🏢 ใช้โดยบริษัท: GitHub, Yahoo, Microsoft</h3>
+        <p>
+          SMACSS แบ่ง CSS ออกเป็น 5 หมวดหมู่
+          ช่วยให้โค้ดมีโครงสร้างที่ชัดเจนและสามารถขยายได้
+        </p>
+      </div>
+
+      <div class="smacss-categories">
+        <div class="smacss-grid">
+          <div class="smacss-category">
+            <h4>1. Base</h4>
+            <p>CSS Reset และ Element defaults</p>
+            <pre><code>/* Base */
+* { box-sizing: border-box; }
+html { font-size: 16px; }
+body { margin: 0; font-family: sans-serif; }</code></pre>
+          </div>
+
+          <div class="smacss-category">
+            <h4>2. Layout</h4>
+            <p>โครงสร้างหลักของหน้าเว็บ</p>
+            <pre><code>/* Layout */
+.l-header { }
+.l-sidebar { }
+.l-main { }
+.l-footer { }</code></pre>
+          </div>
+
+          <div class="smacss-category">
+            <h4>3. Module</h4>
+            <p>Component ที่ใช้ซ้ำได้</p>
+            <pre><code>/* Module */
+.card { }
+.button { }
+.form { }
+.nav { }</code></pre>
+          </div>
+
+          <div class="smacss-category">
+            <h4>4. State</h4>
+            <p>สถานะของ Module</p>
+            <pre><code>/* State */
+.is-hidden { }
+.is-active { }
+.is-disabled { }
+.is-loading { }</code></pre>
+          </div>
+
+          <div class="smacss-category">
+            <h4>5. Theme</h4>
+            <p>การกำหนดธีมและสี</p>
+            <pre><code>/* Theme */
+.theme-dark { }
+.theme-light { }
+.theme-brand { }</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-section">
+        <h3>🚀 Demo: SMACSS Structure</h3>
+        <div class="smacss-demo">
+          <div class="l-header">
+            <nav class="nav">
+              <ul class="nav__list">
+                <li class="nav__item">
+                  <a href="#" class="nav__link is-active">Home</a>
+                </li>
+                <li class="nav__item">
+                  <a href="#" class="nav__link">Movies</a>
+                </li>
+                <li class="nav__item">
+                  <a href="#" class="nav__link">Series</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+
+          <div class="l-main">
+            <div class="card">
+              <h3 class="card__title">SMACSS Example</h3>
+              <p class="card__content">
+                โครงสร้างที่แบ่งแยกหมวดหมู่อย่างชัดเจน
+              </p>
+              <button class="button button--primary">Primary Action</button>
+              <button class="button button--secondary is-disabled">
+                Disabled Action
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="file-structure">
+          <h4>📁 File Organization ตาม SMACSS:</h4>
+          <pre><code>css/
+├── base/
+│   ├── reset.css
+│   └── typography.css
+├── layout/
+│   ├── header.css
+│   ├── sidebar.css
+│   └── footer.css
+├── modules/
+│   ├── card.css
+│   ├── button.css
+│   └── nav.css
+├── state/
+│   └── states.css
+└── theme/
+    ├── dark.css
+    └── light.css</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Atomic CSS -->
+    <section id="atomic-css">
+      <h2>03. Atomic CSS - Utility-First Approach</h2>
+
+      <div class="concept-overview">
+        <h3>
+          🏢 ใช้โดยบริษัท: Facebook, Airbnb (ในบางโปรเจ็กต์),
+          <span class="tailwind-highlight">Tailwind CSS Framework</span> ⭐
+        </h3>
+        <p>
+          Atomic CSS ใช้ utility classes เล็กๆ ที่ทำงานเฉพาะเจาะจง
+          ช่วยลดการเขียน CSS ซ้ำๆ และเพิ่มความยืดหยุ่น
+        </p>
+
+        <div class="tailwind-student-note">
+          <h4>🎓 สำหรับนักเรียน/นักศึกษา</h4>
+          <p>
+            <strong class="tailwind-highlight">Tailwind CSS</strong> เป็น
+            framework ที่นักเรียนและนักศึกษาใช้มากที่สุดในปัจจุบัน!
+            เพราะช่วยให้เขียน CSS ได้เร็วขึ้นมาก และเหมาะสำหรับการเรียนรู้
+            utility-first approach
+          </p>
+          <div class="tailwind-benefits">
+            <h5>⚡ ทำไมนักเรียนชอบ Tailwind:</h5>
+            <ul>
+              <li>🚀 เขียนได้เร็ว - ไม่ต้องคิด class name</li>
+              <li>📱 Responsive ง่าย - md:, lg:, xl:</li>
+              <li>🎨 Design System ดี - สีและขนาดครบ</li>
+              <li>📖 Documentation ดี - เรียนรู้ง่าย</li>
+              <li>🌟 Community ใหญ่ - หาความช่วยเหลือได้</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="atomic-examples">
+        <h3>🔧 Atomic Classes Examples</h3>
+        <div class="atomic-grid">
+          <div class="atomic-category">
+            <h4>Spacing</h4>
+            <pre><code>.m-1 { margin: 0.25rem; }
+.p-2 { padding: 0.5rem; }
+.mt-4 { margin-top: 1rem; }
+.px-3 { padding-left: 0.75rem; padding-right: 0.75rem; }</code></pre>
+          </div>
+
+          <div class="atomic-category">
+            <h4>Colors</h4>
+            <pre><code>.text-white { color: white; }
+.bg-blue { background-color: #3b82f6; }
+.border-red { border-color: #ef4444; }</code></pre>
+          </div>
+
+          <div class="atomic-category">
+            <h4>Layout</h4>
+            <pre><code>.flex { display: flex; }
+.hidden { display: none; }
+.w-full { width: 100%; }
+.h-auto { height: auto; }</code></pre>
+          </div>
+
+          <div class="atomic-category">
+            <h4>Typography</h4>
+            <pre><code>.text-lg { font-size: 1.125rem; }
+.font-bold { font-weight: 700; }
+.text-center { text-align: center; }</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-section">
+        <h3>🚀 Demo: Traditional CSS vs Atomic CSS</h3>
+
+        <div class="comparison-grid">
+          <div class="traditional-approach">
+            <h4>❌ Traditional Approach</h4>
+            <pre><code>/* CSS */
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  background-color: #1f2937;
+  color: white;
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+  font-size: 1.125rem;
+  color: #9ca3af;
+  margin-bottom: 2rem;
+}</code></pre>
+
+            <pre><code><!-- HTML -->
+&lt;div class="hero-section"&gt;
+  &lt;h1 class="hero-title"&gt;Welcome&lt;/h1&gt;
+  &lt;p class="hero-subtitle"&gt;Subtitle&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+
+          <div class="atomic-approach">
+            <h4>✅ Atomic CSS Approach</h4>
+            <pre><code>/* Pre-built utility classes */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.p-8 { padding: 2rem; }
+.bg-gray-800 { background-color: #1f2937; }
+.text-white { color: white; }
+.text-center { text-align: center; }
+.text-2xl { font-size: 2rem; }
+.font-bold { font-weight: bold; }
+.mb-4 { margin-bottom: 1rem; }
+.text-lg { font-size: 1.125rem; }
+.text-gray-400 { color: #9ca3af; }
+.mb-8 { margin-bottom: 2rem; }</code></pre>
+
+            <pre><code><!-- HTML -->
+&lt;div class="flex flex-col items-center p-8 bg-gray-800 text-white text-center"&gt;
+  &lt;h1 class="text-2xl font-bold mb-4"&gt;Welcome&lt;/h1&gt;
+  &lt;p class="text-lg text-gray-400 mb-8"&gt;Subtitle&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+        </div>
+
+        <div class="atomic-demo-live">
+          <h4>🎮 Live Example</h4>
+          <div
+            class="flex flex-col items-center p-8 bg-gray-800 text-white text-center rounded-lg"
+          >
+            <h1 class="text-2xl font-bold mb-4">Atomic CSS Demo</h1>
+            <p class="text-lg text-gray-400 mb-8">Built with utility classes</p>
+            <div class="flex gap-4">
+              <button
+                class="px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
+              >
+                Primary
+              </button>
+              <button
+                class="px-6 py-2 border border-gray-500 text-gray-300 rounded hover:bg-gray-700 transition-colors"
+              >
+                Secondary
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="atomic-benefits">
+          <h4>🎯 ข้อดีของ Atomic CSS:</h4>
+          <ul>
+            <li><strong>Rapid Development</strong> - พัฒนาได้เร็วขึ้น</li>
+            <li>
+              <strong>Consistency</strong> - สไตล์สอดคล้องกันทั้งโปรเจ็กต์
+            </li>
+            <li><strong>Small Bundle Size</strong> - ไฟล์ CSS เล็กลง</li>
+            <li>
+              <strong>No Context Switching</strong> - ไม่ต้องสลับไปมาระหว่าง
+              HTML และ CSS
+            </li>
+          </ul>
+
+          <h4>⚠️ ข้อควรระวัง:</h4>
+          <ul>
+            <li>HTML อาจดูยาวและซับซ้อน</li>
+            <li>Learning curve สำหรับ class names</li>
+            <li>ต้องมี design system ที่ดี</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Design Tokens -->
+    <section id="design-tokens">
+      <h2>04. Design Tokens - Netflix & Spotify's Design System</h2>
+
+      <div class="concept-overview">
+        <h3>
+          🏢 ใช้โดยบริษัท: Netflix, Spotify, Google (Material), Apple (Human
+          Interface)
+        </h3>
+        <p>
+          Design Tokens คือค่าคงที่ที่เก็บการตัดสินใจเรื่องดิไซน์ เช่น สี ขนาด
+          spacing ช่วยให้ดิไซน์สอดคล้องกันทั้งแพลตฟอร์ม
+        </p>
+      </div>
+
+      <div class="tokens-structure">
+        <h3>🎨 โครงสร้าง Design Tokens</h3>
+        <div class="tokens-grid">
+          <div class="token-category">
+            <h4>Colors</h4>
+            <pre><code>:root {
+  /* Brand Colors */
+  --color-primary: #e50914;     /* Netflix Red */
+  --color-secondary: #1db954;   /* Spotify Green */
+  
+  /* Neutral Colors */
+  --color-neutral-100: #ffffff;
+  --color-neutral-200: #f5f5f5;
+  --color-neutral-800: #141414;
+  --color-neutral-900: #000000;
+  
+  /* Semantic Colors */
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+}</code></pre>
+          </div>
+
+          <div class="token-category">
+            <h4>Typography</h4>
+            <pre><code>:root {
+  /* Font Families */
+  --font-primary: 'Inter', sans-serif;
+  --font-secondary: 'Roboto Mono', monospace;
+  
+  /* Font Sizes */
+  --text-xs: 0.75rem;    /* 12px */
+  --text-sm: 0.875rem;   /* 14px */
+  --text-base: 1rem;     /* 16px */
+  --text-lg: 1.125rem;   /* 18px */
+  --text-xl: 1.25rem;    /* 20px */
+  --text-2xl: 1.5rem;    /* 24px */
+  --text-3xl: 1.875rem;  /* 30px */
+  
+  /* Font Weights */
+  --font-light: 300;
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+}</code></pre>
+          </div>
+
+          <div class="token-category">
+            <h4>Spacing</h4>
+            <pre><code>:root {
+  /* Spacing Scale */
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+  --space-16: 4rem;     /* 64px */
+  --space-20: 5rem;     /* 80px */
+}</code></pre>
+          </div>
+
+          <div class="token-category">
+            <h4>Elevation & Effects</h4>
+            <pre><code>:root {
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
+  
+  /* Border Radius */
+  --radius-sm: 0.125rem;   /* 2px */
+  --radius-md: 0.375rem;   /* 6px */
+  --radius-lg: 0.5rem;     /* 8px */
+  --radius-xl: 0.75rem;    /* 12px */
+  --radius-full: 9999px;   /* Full round */
+  
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 350ms ease;
+}</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-section">
+        <h3>🚀 Demo: Netflix-Inspired Design System</h3>
+        <div class="netflix-demo">
+          <div class="netflix-card">
+            <div class="netflix-card__image">
+              <img
+                src="https://image.tmdb.org/t/p/w500/or06FN3Dka5tukK1e9sl16pB3iy.jpg"
+                alt="Avengers"
+              />
+            </div>
+            <div class="netflix-card__content">
+              <h3 class="netflix-card__title">Avengers: Endgame</h3>
+              <div class="netflix-card__meta">
+                <span class="netflix-badge netflix-badge--match"
+                  >98% Match</span
+                >
+                <span class="netflix-card__year">2019</span>
+                <span class="netflix-card__rating">13+</span>
+                <span class="netflix-card__duration">3h 1m</span>
+              </div>
+              <p class="netflix-card__description">
+                After the devastating events of Infinity War...
+              </p>
+              <div class="netflix-card__actions">
+                <button class="netflix-btn netflix-btn--primary">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                  Play
+                </button>
+                <button class="netflix-btn netflix-btn--secondary">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                    />
+                  </svg>
+                  My List
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="spotify-demo">
+          <h4>🎵 Spotify-Inspired Components</h4>
+          <div class="spotify-player">
+            <div class="spotify-player__track">
+              <div class="spotify-player__artwork">
+                <img
+                  src="https://via.placeholder.com/64x64/1db954/ffffff?text=♪"
+                  alt="Track"
+                />
+              </div>
+              <div class="spotify-player__info">
+                <div class="spotify-player__title">Blinding Lights</div>
+                <div class="spotify-player__artist">The Weeknd</div>
+              </div>
+            </div>
+            <div class="spotify-player__controls">
+              <button class="spotify-control">⏮</button>
+              <button class="spotify-control spotify-control--play">⏸</button>
+              <button class="spotify-control">⏭</button>
+            </div>
+            <div class="spotify-player__progress">
+              <span class="spotify-time">1:23</span>
+              <div class="spotify-progress-bar">
+                <div class="spotify-progress-fill" style="width: 35%"></div>
+              </div>
+              <span class="spotify-time">3:20</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="tokens-benefits">
+          <h4>🎯 ประโยชน์ของ Design Tokens:</h4>
+          <ul>
+            <li><strong>Consistency</strong> - สีและขนาดสอดคล้องกันทั้งระบบ</li>
+            <li><strong>Scalability</strong> - เพิ่มคอมโพเนนต์ใหม่ได้ง่าย</li>
+            <li><strong>Maintainability</strong> - แก้ไขได้จากจุดเดียว</li>
+            <li><strong>Brand Consistency</strong> - รักษาแบรนด์ให้สอดคล้อง</li>
+            <li><strong>Developer Experience</strong> - ทำงานร่วมกันได้ดี</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="interactive-demo">
+        <h3>🎮 Interactive: Theme Switcher</h3>
+        <div class="theme-switcher">
+          <div class="theme-controls">
+            <button
+              onclick="switchTheme('netflix')"
+              class="theme-btn theme-btn--netflix"
+            >
+              Netflix Theme
+            </button>
+            <button
+              onclick="switchTheme('spotify')"
+              class="theme-btn theme-btn--spotify"
+            >
+              Spotify Theme
+            </button>
+            <button
+              onclick="switchTheme('youtube')"
+              class="theme-btn theme-btn--youtube"
+            >
+              YouTube Theme
+            </button>
+            <button
+              onclick="switchTheme('discord')"
+              class="theme-btn theme-btn--discord"
+            >
+              Discord Theme
+            </button>
+          </div>
+
+          <div id="theme-demo-card" class="theme-card" data-theme="netflix">
+            <div class="theme-card__header">
+              <h3 class="theme-card__title">Design Tokens in Action</h3>
+              <span class="theme-card__badge">Live Demo</span>
+            </div>
+            <div class="theme-card__content">
+              <p class="theme-card__text">
+                เปลี่ยนธีมเพื่อดูการทำงานของ Design Tokens
+              </p>
+              <div class="theme-card__buttons">
+                <button class="theme-card__btn theme-card__btn--primary">
+                  Primary
+                </button>
+                <button class="theme-card__btn theme-card__btn--secondary">
+                  Secondary
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Component Systems -->
+    <section id="component-system">
+      <h2>05. Component Systems - Modern CSS Architecture</h2>
+
+      <div class="concept-overview">
+        <h3>
+          🏢 ใช้โดยบริษัท: React, Vue, Angular ecosystems, Google, Facebook
+        </h3>
+
+        <div class="component-definition">
+          <h4>🤔 Component Systems คืออะไร?</h4>
+          <p>
+            <strong>Component Systems</strong> คือการแบ่ง UI (User Interface)
+            ออกเป็นชิ้นส่วนเล็กๆ ที่สามารถนำไปใช้ซ้ำได้ (reusable components)
+            ซึ่งสอดคล้องกับแนวคิดของเฟรมเวิร์กสมัยใหม่อย่าง React, Vue, หรือ
+            Angular
+          </p>
+
+          <div class="mindset-shift">
+            <h5>🧠 เปลี่ยนมุมมองการคิด:</h5>
+            <div class="mindset-comparison">
+              <div class="old-mindset">
+                <h6>❌ แนวคิดเก่า:</h6>
+                <p>
+                  มอง UI เป็น<strong>หน้าเว็บหน้าเดียว</strong>ที่เขียน CSS ยาวๆ
+                </p>
+              </div>
+              <div class="new-mindset">
+                <h6>✅ แนวคิดใหม่:</h6>
+                <p>
+                  มอง UI
+                  เป็น<strong>ชุดของส่วนประกอบ</strong>ที่ประกอบกันเป็นหน้าเว็บ
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="component-examples">
+            <h5>🧩 ตัวอย่าง Component พื้นฐาน:</h5>
+            <div class="basic-components-grid">
+              <div class="basic-component">
+                <span class="component-icon">🔘</span>
+                <span class="component-name">ปุ่ม (Button)</span>
+              </div>
+              <div class="basic-component">
+                <span class="component-icon">🃏</span>
+                <span class="component-name">การ์ด (Card)</span>
+              </div>
+              <div class="basic-component">
+                <span class="component-icon">🧭</span>
+                <span class="component-name">แถบนำทาง (Navigation Bar)</span>
+              </div>
+              <div class="basic-component">
+                <span class="component-icon">📝</span>
+                <span class="component-name">ฟอร์ม (Form)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="component-independence">
+            <h5>🔧 หลักการสำคัญ:</h5>
+            <p>
+              แต่ละส่วนประกอบเหล่านี้จะมี
+              <strong>CSS ของตัวเองที่ถูกเขียนขึ้นมาเพื่อมันโดยเฉพาะ</strong>
+              ทำให้มันสามารถทำงานได้ด้วยตัวเองโดยไม่ขึ้นกับส่วนอื่นๆ ในหน้าเว็บ
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="component-hierarchy">
+        <h3>🏗️ Component Hierarchy (ลำดับชั้นของ Component)</h3>
+        <p class="hierarchy-intro">
+          Component Systems
+          มักจะมีการจัดลำดับชั้นของส่วนประกอบเพื่อความยืดหยุ่นและความเป็นระเบียบ:
+        </p>
+
+        <div class="hierarchy-visual">
+          <div class="hierarchy-level">
+            <h4>1. Tokens (ระดับต่ำสุด)</h4>
+            <p class="hierarchy-description">
+              เปรียบเสมือน <strong>DNA ของดีไซน์</strong> เช่น สีหลัก,
+              ขนาดตัวอักษร, ระยะห่าง, ขอบโค้ง ซึ่งจะถูกกำหนดไว้ใน CSS Custom
+              Properties (หรือ Variables)
+              ทำให้การเปลี่ยนแปลงดีไซน์ทำได้ง่ายและเป็นระบบ
+            </p>
+            <div class="token-examples">
+              <span class="token-demo token-demo--color"></span>
+              <span class="token-demo token-demo--spacing"></span>
+              <span class="token-demo token-demo--typography"></span>
+            </div>
+            <div class="token-code-example">
+              <pre><code>:root {
+  --color-primary: #3b82f6;
+  --space-md: 1rem;
+  --text-lg: 1.125rem;
+}</code></pre>
+            </div>
+          </div>
+
+          <div class="hierarchy-level">
+            <h4>2. Elements (องค์ประกอบพื้นฐาน)</h4>
+            <p class="hierarchy-description">
+              ส่วนประกอบที่เล็กที่สุดที่นำมาใช้บ่อยๆ เช่น Button, Input, Badge
+              ซึ่งใช้ Tokens เป็นพื้นฐานในการสร้าง
+            </p>
+            <div class="element-examples">
+              <button class="btn-demo">Button</button>
+              <input class="input-demo" placeholder="Input" />
+              <div class="badge-demo">Badge</div>
+            </div>
+          </div>
+
+          <div class="hierarchy-level">
+            <h4>3. Components (ส่วนประกอบ)</h4>
+            <p class="hierarchy-description">
+              ส่วนประกอบที่ประกอบด้วย Elements หลายๆ ตัว เช่น Card ที่ประกอบด้วย
+              Card Header, Card Content
+            </p>
+            <div class="component-examples">
+              <div class="card-demo">
+                <div class="card-demo__header">Card Header</div>
+                <div class="card-demo__body">Card Content</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hierarchy-level">
+            <h4>4. Layouts (โครงสร้าง)</h4>
+            <p class="hierarchy-description">
+              โครงสร้างที่ใหญ่ที่สุดที่จัดวาง Component ต่างๆ เช่น Sidebar และ
+              Main Content
+            </p>
+            <div class="layout-examples">
+              <div class="layout-demo">
+                <div class="layout-demo__sidebar">Sidebar</div>
+                <div class="layout-demo__main">Main Content</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="component-examples">
+        <h3>🧩 Component Library Example</h3>
+
+        <div class="component-showcase">
+          <div class="component-group">
+            <h4>Buttons</h4>
+            <div class="component-variants">
+              <button class="c-btn c-btn--primary c-btn--sm">Small</button>
+              <button class="c-btn c-btn--primary c-btn--md">Medium</button>
+              <button class="c-btn c-btn--primary c-btn--lg">Large</button>
+            </div>
+            <div class="component-variants">
+              <button class="c-btn c-btn--secondary c-btn--md">
+                Secondary
+              </button>
+              <button class="c-btn c-btn--success c-btn--md">Success</button>
+              <button class="c-btn c-btn--danger c-btn--md">Danger</button>
+            </div>
+            <div class="component-variants">
+              <button class="c-btn c-btn--ghost c-btn--md">Ghost</button>
+              <button class="c-btn c-btn--outline c-btn--md">Outline</button>
+              <button class="c-btn c-btn--link c-btn--md">Link</button>
+            </div>
+          </div>
+
+          <div class="component-group">
+            <h4>Cards</h4>
+            <div class="cards-grid">
+              <div class="c-card c-card--elevated">
+                <div class="c-card__header">
+                  <h5 class="c-card__title">Elevated Card</h5>
+                </div>
+                <div class="c-card__body">
+                  <p class="c-card__text">Card with shadow elevation</p>
+                </div>
+              </div>
+
+              <div class="c-card c-card--outlined">
+                <div class="c-card__header">
+                  <h5 class="c-card__title">Outlined Card</h5>
+                </div>
+                <div class="c-card__body">
+                  <p class="c-card__text">Card with border outline</p>
+                </div>
+              </div>
+
+              <div class="c-card c-card--filled">
+                <div class="c-card__header">
+                  <h5 class="c-card__title">Filled Card</h5>
+                </div>
+                <div class="c-card__body">
+                  <p class="c-card__text">Card with background fill</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="component-group">
+            <h4>Form Elements</h4>
+            <div class="form-demo">
+              <div class="c-form-field">
+                <label class="c-label" for="email">Email Address</label>
+                <input
+                  class="c-input"
+                  id="email"
+                  type="email"
+                  placeholder="Enter your email"
+                />
+              </div>
+
+              <div class="c-form-field">
+                <label class="c-label" for="message">Message</label>
+                <textarea
+                  class="c-textarea"
+                  id="message"
+                  placeholder="Your message..."
+                ></textarea>
+              </div>
+
+              <div class="c-form-field">
+                <div class="c-checkbox-group">
+                  <input class="c-checkbox" type="checkbox" id="newsletter" />
+                  <label class="c-checkbox-label" for="newsletter"
+                    >Subscribe to newsletter</label
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="component-code">
+          <h4>📝 Component CSS Structure (โครงสร้าง CSS ของ Component)</h4>
+          <p class="component-code-intro">
+            ตัวอย่างโค้ดด้านล่างแสดงให้เห็นถึงวิธีสร้าง CSS สำหรับ Component
+            อย่าง Button ที่ดีที่สุด:
+          </p>
+          <pre><code>/* Button Component */
+.c-btn {
+  /* Base styles */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: var(--radius-md);
+  font-weight: var(--font-medium);
+  transition: var(--transition-normal);
+  cursor: pointer;
+  
+  /* Size variants */
+  &--sm {
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--text-sm);
+  }
+  
+  &--md {
+    padding: var(--space-3) var(--space-4);
+    font-size: var(--text-base);
+  }
+  
+  &--lg {
+    padding: var(--space-4) var(--space-6);
+    font-size: var(--text-lg);
+  }
+  
+  /* Color variants */
+  &--primary {
+    background-color: var(--color-primary);
+    color: var(--color-neutral-100);
+    
+    &:hover {
+      background-color: var(--color-primary-dark);
+    }
+  }
+  
+  &--secondary {
+    background-color: var(--color-neutral-200);
+    color: var(--color-neutral-800);
+    
+    &:hover {
+      background-color: var(--color-neutral-300);
+    }
+  }
+}</code></pre>
+
+          <div class="component-best-practices">
+            <h5>🏆 ทำไมแนวทางนี้ถึงเป็นแนวทางปฏิบัติที่ดีที่สุด:</h5>
+
+            <div class="best-practices-grid">
+              <div class="practice-item">
+                <div class="practice-icon">📋</div>
+                <div class="practice-content">
+                  <h6>ความเป็นระเบียบ (Organization)</h6>
+                  <p>
+                    โค้ดทั้งหมดของ <code>c-btn</code> (Component Button)
+                    ถูกจัดกลุ่มไว้ด้วยกัน ทำให้ง่ายต่อการค้นหาและแก้ไข
+                  </p>
+                </div>
+              </div>
+
+              <div class="practice-item">
+                <div class="practice-icon">🔧</div>
+                <div class="practice-content">
+                  <h6>การใช้ตัวแปร (Custom Properties)</h6>
+                  <p>
+                    การใช้ <code>var(--...)</code> ทำให้คุณสามารถเปลี่ยนดีไซน์
+                    (เช่น สี, ระยะห่าง, ขนาด)
+                    ได้ทั้งโปรเจกต์โดยการเปลี่ยนแค่ค่าของตัวแปรเพียงครั้งเดียว
+                  </p>
+                </div>
+              </div>
+
+              <div class="practice-item">
+                <div class="practice-icon">🔗</div>
+                <div class="practice-content">
+                  <h6>การใช้ & (Nesting)</h6>
+                  <p>
+                    การใช้ <code>&--sm</code> หรือ
+                    <code>&--primary</code> คือการใช้ nesting
+                    เพื่อสร้างคลาสที่ชัดเจนและสื่อความหมายว่า
+                    <code>&--sm</code> เป็น Modifier ของ
+                    <code>c-btn</code> ที่กำหนดขนาดเล็ก
+                  </p>
+                </div>
+              </div>
+
+              <div class="practice-item">
+                <div class="practice-icon">♻️</div>
+                <div class="practice-content">
+                  <h6>ความสามารถในการนำไปใช้ซ้ำ (Reusability)</h6>
+                  <p>
+                    โค้ดสำหรับ
+                    <code>c-btn</code>
+                    สามารถนำไปใช้กับปุ่มในส่วนไหนของเว็บไซต์ก็ได้
+                    และคุณสามารถเปลี่ยนขนาดหรือสีได้ง่ายๆ โดยการเพิ่ม Modifier
+                    เข้าไปในคลาส
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="summary-note">
+              <h6>📋 สรุป:</h6>
+              <p>
+                แนวทาง <strong>Component Systems</strong> และ
+                <strong>CSS Custom Properties</strong> คือแนวทางที่ทำให้การเขียน
+                CSS ในยุคปัจจุบันมีความยืดหยุ่น, จัดการได้ง่าย,
+                และสามารถปรับขนาดได้ในโปรเจกต์ที่ซับซ้อน
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. CSS Custom Properties -->
+    <section id="css-variables">
+      <h2>06. CSS Custom Properties - Dynamic Theming & Scalability</h2>
+
+      <div class="concept-overview">
+        <h3>🚀 Modern CSS Feature ที่ทุกบราวเซอร์รองรับ</h3>
+        <p>
+          CSS Custom Properties (CSS Variables) ช่วยให้สร้างธีมแบบไดนามิก
+          และจัดการค่าต่างๆ ได้อย่างยืดหยุ่น
+        </p>
+      </div>
+
+      <div class="css-variables-basics">
+        <h3>📚 พื้นฐาน CSS Variables</h3>
+        <div class="variables-comparison">
+          <div class="without-variables">
+            <h4>❌ Without CSS Variables</h4>
+            <pre><code>/* ต้องแก้หลายที่เมื่อเปลี่ยนสี */
+.header { background-color: #3b82f6; }
+.button { background-color: #3b82f6; }
+.link { color: #3b82f6; }
+.border { border-color: #3b82f6; }
+
+/* เมื่อต้องการเปลี่ยนสี ต้องแก้ทุกจุด */
+.header { background-color: #ef4444; }
+.button { background-color: #ef4444; }
+.link { color: #ef4444; }
+.border { border-color: #ef4444; }</code></pre>
+          </div>
+
+          <div class="with-variables">
+            <h4>✅ With CSS Variables</h4>
+            <pre><code>/* กำหนดตัวแปรครั้งเดียว */
+:root {
+  --primary-color: #3b82f6;
+}
+
+/* ใช้ตัวแปรในทุกที่ */
+.header { background-color: var(--primary-color); }
+.button { background-color: var(--primary-color); }
+.link { color: var(--primary-color); }
+.border { border-color: var(--primary-color); }
+
+/* เปลี่ยนครั้งเดียว แก้ทุกที่ */
+:root {
+  --primary-color: #ef4444;
+}</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="variables-features">
+        <h3>🔧 Advanced Features</h3>
+        <div class="features-grid">
+          <div class="feature-demo">
+            <h4>1. Default Values</h4>
+            <pre><code>/* ใช้ค่า default หากตัวแปรไม่ได้กำหนด */
+.component {
+  color: var(--text-color, #333333);
+  margin: var(--spacing, 1rem);
+}</code></pre>
+            <div
+              class="demo-box"
+              style="
+                color: var(--demo-text-color, #333);
+                margin: var(--demo-spacing, 1rem);
+              "
+            >
+              Demo with fallback values
+            </div>
+          </div>
+
+          <div class="feature-demo">
+            <h4>2. Computed Values</h4>
+            <pre><code>:root {
+  --base-size: 16px;
+  --scale: 1.5;
+}
+
+.title {
+  /* คำนวณค่าจากตัวแปร */
+  font-size: calc(var(--base-size) * var(--scale));
+}</code></pre>
+            <div class="demo-title" style="font-size: calc(16px * 1.5)">
+              Computed Font Size
+            </div>
+          </div>
+
+          <div class="feature-demo">
+            <h4>3. Scope & Inheritance</h4>
+            <pre><code>.card {
+  --card-padding: 1rem;
+  padding: var(--card-padding);
+}
+
+.card--large {
+  --card-padding: 2rem; /* Override */
+}</code></pre>
+            <div class="scope-demo">
+              <div class="scope-card scope-card--normal">Normal Card</div>
+              <div class="scope-card scope-card--large">Large Card</div>
+            </div>
+          </div>
+
+          <div class="feature-demo">
+            <h4>4. JavaScript Integration</h4>
+            <pre><code>// เปลี่ยนค่าตัวแปรด้วย JavaScript
+document.documentElement.style
+  .setProperty('--primary-color', '#ff6b6b');
+
+// อ่านค่าตัวแปร
+const primaryColor = getComputedStyle(document.documentElement)
+  .getPropertyValue('--primary-color');</code></pre>
+            <button onclick="randomizeTheme()" class="js-demo-btn">
+              🎨 Random Theme
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="dark-mode-demo">
+        <h3>🌙 Demo: Dark Mode Toggle</h3>
+        <div class="theme-demo-container">
+          <div class="theme-controls">
+            <button onclick="toggleDarkMode()" class="theme-toggle">
+              <span class="theme-toggle__icon">🌙</span>
+              <span class="theme-toggle__text">Toggle Dark Mode</span>
+            </button>
+          </div>
+
+          <div class="themed-content" id="themed-content">
+            <div class="themed-card">
+              <h4 class="themed-card__title">Dynamic Theming</h4>
+              <p class="themed-card__text">
+                ใช้ CSS Variables เพื่อสลับธีมแบบไดนามิก โดยไม่ต้องเขียน CSS ซ้ำ
+              </p>
+              <div class="themed-card__actions">
+                <button class="themed-btn themed-btn--primary">
+                  Primary Action
+                </button>
+                <button class="themed-btn themed-btn--secondary">
+                  Secondary
+                </button>
+              </div>
+            </div>
+
+            <div class="themed-stats">
+              <div class="stat-item">
+                <div class="stat-number">98%</div>
+                <div class="stat-label">Performance</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">45ms</div>
+                <div class="stat-label">Load Time</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">2.3MB</div>
+                <div class="stat-label">Bundle Size</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="theme-code">
+          <h4>📝 Dark Mode Implementation</h4>
+          <pre><code>/* Light theme (default) */
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --text-primary: #1a202c;
+  --text-secondary: #4a5568;
+  --border-color: #e2e8f0;
+}
+
+/* Dark theme */
+[data-theme="dark"] {
+  --bg-primary: #1a202c;
+  --bg-secondary: #2d3748;
+  --text-primary: #f7fafc;
+  --text-secondary: #cbd5e0;
+  --border-color: #4a5568;
+}
+
+/* Components use the variables */
+.card {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+// JavaScript
+function toggleDarkMode() {
+  const html = document.documentElement;
+  const currentTheme = html.getAttribute('data-theme');
+  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', newTheme);
+}</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Naming Conventions -->
+    <section id="naming-conventions">
+      <h2>07. Naming Conventions - Professional CSS Structure</h2>
+
+      <div class="concept-overview">
+        <h3>🎯 การตั้งชื่อที่ดีคือพื้นฐานของโค้ดที่ยั่งยืน</h3>
+        <p>
+          Naming conventions ที่ดีช่วยให้ทีมทำงานร่วมกันได้อย่างมีประสิทธิภาพ
+          และลดความสับสนในการพัฒนา
+        </p>
+      </div>
+
+      <div class="naming-systems">
+        <h3>📋 Popular Naming Systems</h3>
+        <div class="naming-comparison">
+          <div class="naming-method">
+            <h4>1. BEM (Block Element Modifier)</h4>
+            <div class="naming-example">
+              <pre><code>/* Block */
+.navigation { }
+
+/* Elements */
+.navigation__list { }
+.navigation__item { }
+.navigation__link { }
+
+/* Modifiers */
+.navigation--fixed { }
+.navigation__link--active { }</code></pre>
+              <div class="pros-cons">
+                <div class="pros">
+                  <strong>✅ Pros:</strong>
+                  <ul>
+                    <li>ชัดเจน เข้าใจง่าย</li>
+                    <li>ไม่มีปัญหา specificity</li>
+                    <li>ใช้ได้กับทุก framework</li>
+                  </ul>
+                </div>
+                <div class="cons">
+                  <strong>❌ Cons:</strong>
+                  <ul>
+                    <li>ชื่อ class ยาว</li>
+                    <li>HTML ดูซับซ้อน</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="naming-method">
+            <h4>2. OOCSS (Object-Oriented CSS)</h4>
+            <div class="naming-example">
+              <pre><code>/* Structure */
+.media { }
+.media__object { }
+.media__body { }
+
+/* Skin */
+.card { }
+.card--elevated { }
+.card--outlined { }</code></pre>
+              <div class="pros-cons">
+                <div class="pros">
+                  <strong>✅ Pros:</strong>
+                  <ul>
+                    <li>แยก structure กับ skin</li>
+                    <li>ใช้ซ้ำได้ดี</li>
+                    <li>Performance ดี</li>
+                  </ul>
+                </div>
+                <div class="cons">
+                  <strong>❌ Cons:</strong>
+                  <ul>
+                    <li>Learning curve สูง</li>
+                    <li>ต้องวางแผนล่วงหน้า</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="naming-method">
+            <h4>3. Functional/Atomic</h4>
+            <div class="naming-example">
+              <pre><code>/* Utilities */
+.text-center { text-align: center; }
+.mb-4 { margin-bottom: 1rem; }
+.flex { display: flex; }
+.items-center { align-items: center; }
+.bg-blue-500 { background-color: #3b82f6; }</code></pre>
+              <div class="pros-cons">
+                <div class="pros">
+                  <strong>✅ Pros:</strong>
+                  <ul>
+                    <li>พัฒนาเร็ว</li>
+                    <li>Consistent</li>
+                    <li>Bundle size เล็ก</li>
+                  </ul>
+                </div>
+                <div class="cons">
+                  <strong>❌ Cons:</strong>
+                  <ul>
+                    <li>HTML ยาว</li>
+                    <li>ต้องจำ class name เยอะ</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="naming-method">
+            <h4>4. Component-Based</h4>
+            <div class="naming-example">
+              <pre><code>/* Component prefix */
+.c-button { }
+.c-card { }
+.c-modal { }
+
+/* Layout prefix */
+.l-header { }
+.l-sidebar { }
+
+/* Utility prefix */
+.u-text-center { }
+.u-margin-none { }</code></pre>
+              <div class="pros-cons">
+                <div class="pros">
+                  <strong>✅ Pros:</strong>
+                  <ul>
+                    <li>แยกประเภทชัดเจน</li>
+                    <li>เข้ากับ modern frameworks</li>
+                    <li>Scale ได้ดี</li>
+                  </ul>
+                </div>
+                <div class="cons">
+                  <strong>❌ Cons:</strong>
+                  <ul>
+                    <li>ต้องตกลงกันในทีม</li>
+                    <li>ต้องมีระเบียบเข้ม</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="naming-best-practices">
+        <h3>🏆 Best Practices</h3>
+        <div class="practices-grid">
+          <div class="practice-item">
+            <h4>1. ใช้ภาษาอังกฤษ</h4>
+            <div class="practice-example">
+              <div class="good-example">
+                <strong>✅ Good:</strong>
+                <pre><code>.navigation
+.search-form
+.user-profile</code></pre>
+              </div>
+              <div class="bad-example">
+                <strong>❌ Bad:</strong>
+                <pre><code>.การนำทาง
+.แบบฟอร์มค้นหา
+.โปรไฟล์ผู้ใช้</code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="practice-item">
+            <h4>2. ใช้ kebab-case</h4>
+            <div class="practice-example">
+              <div class="good-example">
+                <strong>✅ Good:</strong>
+                <pre><code>.user-profile
+.search-input
+.mobile-menu</code></pre>
+              </div>
+              <div class="bad-example">
+                <strong>❌ Bad:</strong>
+                <pre><code>.userProfile
+.searchInput
+.mobileMenu</code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="practice-item">
+            <h4>3. ชื่อที่สื่อความหมาย</h4>
+            <div class="practice-example">
+              <div class="good-example">
+                <strong>✅ Good:</strong>
+                <pre><code>.primary-button
+.error-message
+.loading-spinner</code></pre>
+              </div>
+              <div class="bad-example">
+                <strong>❌ Bad:</strong>
+                <pre><code>.btn1
+.red-text
+.spinner</code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="practice-item">
+            <h4>4. หลีกเลี่ยงตัวย่อ</h4>
+            <div class="practice-example">
+              <div class="good-example">
+                <strong>✅ Good:</strong>
+                <pre><code>.navigation
+.advertisement
+.information</code></pre>
+              </div>
+              <div class="bad-example">
+                <strong>❌ Bad:</strong>
+                <pre><code>.nav
+.ad
+.info</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="interactive-naming">
+        <h3>🎮 Interactive: Naming Quiz</h3>
+        <div class="naming-quiz">
+          <div class="quiz-question">
+            <h4>เลือกชื่อ class ที่ดีที่สุดสำหรับปุ่มหลักของเว็บไซต์:</h4>
+            <div class="quiz-options">
+              <button class="quiz-option" onclick="checkAnswer(this, false)">
+                .btn1
+              </button>
+              <button class="quiz-option" onclick="checkAnswer(this, false)">
+                .blue-button
+              </button>
+              <button class="quiz-option" onclick="checkAnswer(this, true)">
+                .primary-button
+              </button>
+              <button class="quiz-option" onclick="checkAnswer(this, false)">
+                .pBtn
+              </button>
+            </div>
+            <div class="quiz-feedback" id="quiz-feedback"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Performance Best Practices -->
+    <section id="performance">
+      <h2>08. Performance Best Practices - Production-Ready CSS</h2>
+
+      <div class="concept-overview">
+        <h3>⚡ CSS Performance ที่บริษัทใหญ่ใช้จริง</h3>
+        <p>
+          เทคนิค CSS Performance ที่ช่วยให้เว็บไซต์โหลดเร็วขึ้น
+          และให้ประสบการณ์ผู้ใช้ที่ดีขึ้น
+        </p>
+      </div>
+
+      <div class="performance-techniques">
+        <h3>🚀 Performance Techniques</h3>
+        <div class="techniques-grid">
+          <div class="technique-item">
+            <h4>1. CSS Minification</h4>
+            <div class="before-after">
+              <div class="before">
+                <strong>Before (2.5KB):</strong>
+                <pre><code>/* นี่คือ comment ที่ไม่จำเป็น */
+.navigation {
+    display: flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navigation__link {
+    color: #333333;
+    text-decoration: none;
+    margin: 0 1rem;
+}</code></pre>
+              </div>
+              <div class="after">
+                <strong>After (1.2KB):</strong>
+                <pre><code>.navigation{display:flex;align-items:center;padding:1rem 2rem;background-color:#fff;box-shadow:0 2px 4px rgba(0,0,0,.1)}.navigation__link{color:#333;text-decoration:none;margin:0 1rem}</code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="technique-item">
+            <h4>2. Critical CSS</h4>
+            <p>โหลด CSS ที่จำเป็นสำหรับ above-the-fold ก่อน</p>
+            <pre><code>&lt;!-- Critical CSS inline --&gt;
+&lt;style&gt;
+/* เฉพาะ CSS ที่จำเป็นสำหรับ first paint */
+body{font-family:sans-serif;margin:0}
+.header{background:#fff;padding:1rem}
+.hero{height:100vh;background:#f0f0f0}
+&lt;/style&gt;
+
+&lt;!-- Non-critical CSS โหลดแบบ async --&gt;
+&lt;link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'"&gt;</code></pre>
+          </div>
+
+          <div class="technique-item">
+            <h4>3. CSS-in-JS Optimization</h4>
+
+            <div class="css-in-js-explanation">
+              <p class="technique-intro">
+                <strong>CSS-in-JS Optimization</strong>
+                เป็นแนวคิดที่อธิบายวิธีการเขียน CSS-in-JS ที่มีประสิทธิภาพ
+                โค้ดด้านล่างเป็นตัวอย่างจากไลบรารี
+                <strong>Styled Components</strong>
+                ซึ่งเป็นแนวทางปฏิบัติที่ดีที่สุด (best practice)
+                ในการเขียนโค้ดเพื่อหลีกเลี่ยงปัญหาด้านประสิทธิภาพ
+              </p>
+
+              <pre><code>// Styled Components - Production build
+const Button = styled.button`
+  /* ใช้ template literals optimization */
+  background: ${props => props.theme.primary};
+  color: white;
+  padding: 0.5rem 1rem;
+  
+  /* Avoid inline styles ใน render */
+  ${props => props.large && css`
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+  `}
+`;</code></pre>
+
+              <div class="css-in-js-concepts">
+                <div class="concept-section">
+                  <h5>📝 Template Literals Optimization</h5>
+                  <p>
+                    Styled Components ใช้ฟีเจอร์ของ JavaScript ที่เรียกว่า
+                    <strong>Template Literals</strong>
+                    (สตริงที่อยู่ในเครื่องหมาย ``) ในการเขียน CSS
+                  </p>
+
+                  <div class="how-it-works">
+                    <h6>🔧 การทำงาน:</h6>
+                    <p>
+                      เมื่อโค้ดถูก Compile (Production Build) ตัว Styled
+                      Components จะทำการแปลงโค้ด CSS ที่คุณเขียนใน Template
+                      Literals นี้ให้เป็น Class ที่มี Unique Hash (เช่น
+                      <code>.sc-132xyz</code>)
+                    </p>
+                  </div>
+
+                  <div class="benefits">
+                    <h6>✅ ประโยชน์:</h6>
+                    <p>
+                      การทำแบบนี้ทำให้เบราว์เซอร์ไม่ต้องประมวลผล JavaScript
+                      เพื่อคำนวณ Style ทุกครั้งที่ Component ถูก Render แต่จะใช้
+                      Class ที่มีประสิทธิภาพสูงแทน
+                    </p>
+                  </div>
+                </div>
+
+                <div class="concept-section">
+                  <h5>🚫 Avoid Inline Styles ใน Render</h5>
+                  <p>
+                    ในโค้ดตัวอย่าง มีการใช้ Prop
+                    <code>large</code> เพื่อกำหนดขนาดของปุ่ม แต่แทนที่จะใช้
+                    Style แบบ in-line (เช่น
+                    <code>&lt;Button style={{ padding: '1rem 2rem' }}&gt;</code
+                    >), Styled Components จะใช้วิธีที่ฉลาดกว่า
+                  </p>
+
+                  <div class="inline-comparison">
+                    <div class="wrong-way">
+                      <h6>❌ วิธีที่ไม่ดี:</h6>
+                      <pre><code>&lt;Button style={{ 
+  padding: props.large ? '1rem 2rem' : '0.5rem 1rem',
+  fontSize: props.large ? '1.2rem' : '1rem'
+}}&gt;</code></pre>
+                    </div>
+
+                    <div class="right-way">
+                      <h6>✅ วิธีที่ดี (Styled Components):</h6>
+                      <pre><code>${props => props.large && css`
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+`}</code></pre>
+                    </div>
+                  </div>
+
+                  <div class="how-it-works">
+                    <h6>🔧 การทำงาน:</h6>
+                    <ol>
+                      <li>
+                        โค้ดส่วนนี้จะทำงานแค่ครั้งเดียวตอน Build (Compile)
+                      </li>
+                      <li>
+                        เมื่อ <code>props.large</code> เป็น true, Styled
+                        Components จะสร้าง Class เพิ่มเติมอีกตัว (เช่น
+                        <code>.sc-abcdef</code>) ที่มี Style ของขนาดใหญ่
+                      </li>
+                      <li>
+                        ในไฟล์ HTML ที่ถูก Render ปุ่มนั้นก็จะมี 2 Class
+                        ที่รวมกัน เช่น
+                        <code>&lt;button class="sc-132xyz sc-abcdef"&gt;</code>
+                      </li>
+                    </ol>
+                  </div>
+
+                  <div class="benefits">
+                    <h6>✅ ประโยชน์:</h6>
+                    <ul>
+                      <li>
+                        <strong>ประสิทธิภาพ (Performance):</strong> การทำงานกับ
+                        Class ใน CSS มีประสิทธิภาพกว่าการคำนวณ Style แบบ in-line
+                        ใน JavaScript ทุกครั้งที่ Component ถูก Render
+                      </li>
+                      <li>
+                        <strong
+                          >ความสามารถในการนำกลับมาใช้ซ้ำ (Reusability):</strong
+                        >
+                        สามารถใช้ Style ที่เป็น Dynamic นี้กับ Component อื่นๆ
+                        ได้ง่าย
+                      </li>
+                      <li>
+                        <strong>ความสอดคล้อง (Consistency):</strong>
+                        ช่วยให้คุณรักษากฎเกณฑ์การเขียน CSS ได้อย่างสม่ำเสมอ
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="performance-deep-dive">
+                    <h6>🔍 ทำไม Inline Style ช้ากว่า Styled-Components?</h6>
+                    <p>
+                      Inline style (<code>&lt;div style={{}}&gt;</code>)
+                      ช้ากว่าการใช้ styled-components โดยเฉพาะเมื่อ Style
+                      นั้นมีการเปลี่ยนแปลง (dynamic) และ Component มีการ
+                      Re-render บ่อยๆ
+                    </p>
+
+                    <div class="performance-reasons">
+                      <div class="reason-section">
+                        <h6>⚠️ สาเหตุหลัก: การคำนวณใน Runtime</h6>
+                        <p>
+                          เมื่อคุณใช้ inline style (<code
+                            >&lt;div style={{ color: props.color }}&gt;</code
+                          >) ทุกครั้งที่ Component ถูก Re-render (เช่น
+                          props.color เปลี่ยนค่า) React จะต้อง:
+                        </p>
+                        <ul>
+                          <li>
+                            สร้าง Object ของ Style ขึ้นมาใหม่ใน JavaScript
+                          </li>
+                          <li>ส่งค่านี้เข้าไปใน DOM</li>
+                          <li>
+                            ใช้ CPU และ Memory
+                            ของเครื่องผู้ใช้ในการคำนวณทุกครั้ง
+                          </li>
+                          <li>ทำให้เกิด Overhead หากมีการ Re-render บ่อยๆ</li>
+                        </ul>
+                      </div>
+
+                      <div class="reason-section">
+                        <h6>🚀 ประสิทธิภาพของ CSS Classes</h6>
+                        <p>styled-components ใช้ Build Tools เข้ามาช่วย:</p>
+                        <ol>
+                          <li>
+                            ในขั้นตอน Production Build โค้ด CSS จะถูก Compile
+                            เป็น CSS Class ที่มี Unique Hash (เช่น
+                            <code>.sc-1a2b3c</code>)
+                          </li>
+                          <li>
+                            เมื่อ Component ถูก Render, React จะเพียงแค่แนบ
+                            Class ที่ Compile ไว้แล้วเข้ากับ Element
+                          </li>
+                          <li>
+                            เบราว์เซอร์สามารถประมวลผลและ Cache Style
+                            เหล่านี้ได้รวดเร็วกว่า
+                          </li>
+                        </ol>
+                      </div>
+                    </div>
+
+                    <div class="performance-comparison">
+                      <h6>📊 ตัวอย่างเปรียบเทียบ:</h6>
+
+                      <div class="comparison-examples">
+                        <div class="inline-example">
+                          <h6>❌ Inline Style (ช้า):</h6>
+                          <pre><code>// Re-render ทุกครั้งที่ color เปลี่ยน
+&lt;div style={{ color: props.color }}&gt;Hello&lt;/div&gt;</code></pre>
+                          <div class="what-browser-sees">
+                            <strong>เบราว์เซอร์เห็น:</strong>
+                            <ul>
+                              <li>
+                                <code
+                                  >&lt;div style="color:
+                                  red;"&gt;Hello&lt;/div&gt;</code
+                                >
+                              </li>
+                              <li>
+                                เมื่อ color เปลี่ยนเป็น blue →
+                                <code
+                                  >&lt;div style="color:
+                                  blue;"&gt;Hello&lt;/div&gt;</code
+                                >
+                              </li>
+                              <li>ต้องอัปเดต Style ใหม่ทุกครั้ง</li>
+                            </ul>
+                          </div>
+                        </div>
+
+                        <div class="styled-example">
+                          <h6>✅ Styled-Components (เร็ว):</h6>
+                          <pre><code>const StyledDiv = styled.div`
+  color: ${props => props.color};
+`;
+// ...
+&lt;StyledDiv color="red"&gt;Hello&lt;/StyledDiv&gt;</code></pre>
+                          <div class="what-browser-sees">
+                            <strong>เบราว์เซอร์เห็น:</strong>
+                            <ul>
+                              <li>
+                                Production Build:
+                                <code>.sc-1a2b3c { color: red; }</code>
+                              </li>
+                              <li>
+                                HTML:
+                                <code
+                                  >&lt;div
+                                  class="sc-1a2b3c"&gt;Hello&lt;/div&gt;</code
+                                >
+                              </li>
+                              <li>
+                                เมื่อ color เปลี่ยน → สลับ Class ใหม่ (เร็วกว่า)
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="performance-conclusion">
+                      <h6>🎯 สรุป:</h6>
+                      <p>
+                        การใช้
+                        <strong>styled-components ดีกว่า inline style</strong>
+                        ในเรื่องประสิทธิภาพสำหรับ Style ที่มีการเปลี่ยนแปลง
+                        เพราะมันย้ายการคำนวณไปทำในขั้นตอน Build
+                        และใช้ประโยชน์จากความเร็วในการประมวลผล Class
+                        ของเบราว์เซอร์แทนการคำนวณใน Runtime
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="css-in-js-summary">
+                <h5>📋 สรุป CSS-in-JS Optimization</h5>
+                <p>
+                  แนวทางในโค้ดตัวอย่างนี้เป็นการแสดงให้เห็นถึง
+                  <strong>แนวทางปฏิบัติที่ดีที่สุด</strong> ในการใช้ Styled
+                  Components เพื่อ:
+                </p>
+                <ul>
+                  <li>
+                    หลีกเลี่ยงการสร้าง in-line style แบบ Dynamic ในระหว่างการ
+                    Render ซึ่งทำให้ประสิทธิภาพต่ำ
+                  </li>
+                  <li>
+                    ใช้ประโยชน์จากการ Compile ใน Production Build เพื่อแปลง
+                    Template Literals ให้กลายเป็น Class ที่มีประสิทธิภาพสูง
+                  </li>
+                  <li>
+                    จัดการ Style แบบ Dynamic ผ่าน Props โดยการสร้าง Class
+                    ที่สอดคล้องกับ Prop นั้นๆ แทน
+                  </li>
+                </ul>
+                <p class="final-note">
+                  แนวทางนี้ทำให้แอปพลิเคชันของคุณยังคงมีประสิทธิภาพสูงและสามารถปรับขนาดได้ในโปรเจกต์ที่ซับซ้อน
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="technique-item">
+            <h4>4. Unused CSS Removal</h4>
+            <pre><code>// PurgeCSS Configuration
+module.exports = {
+  content: ['./src/**/*.html', './src/**/*.js'],
+  css: ['./src/**/*.css'],
+  
+  // Whitelist คลาสที่ต้องการเก็บไว้
+  safelist: [
+    'is-active',
+    'is-loading',
+    /^swiper-/,  // Swiper library classes
+  ]
+}</code></pre>
+          </div>
+
+          <div class="technique-item">
+            <h4>5. CSS Grid vs Flexbox Performance</h4>
+            <div class="performance-comparison">
+              <div class="perf-item">
+                <strong>🚀 Flexbox - ดีสำหรับ:</strong>
+                <ul>
+                  <li>1D layouts (row หรือ column)</li>
+                  <li>Small-scale components</li>
+                  <li>Dynamic content</li>
+                </ul>
+              </div>
+              <div class="perf-item">
+                <strong>⚡ Grid - ดีสำหรับ:</strong>
+                <ul>
+                  <li>2D layouts (rows และ columns)</li>
+                  <li>Large-scale layouts</li>
+                  <li>Fixed structures</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="technique-item">
+            <h4>6. Animation Performance</h4>
+            <div class="animation-comparison">
+              <div class="slow-animation">
+                <strong>❌ Slow (triggers layout):</strong>
+                <pre><code>.element {
+  transition: left 0.3s ease;
+}
+
+.element:hover {
+  left: 100px; /* Triggers layout recalculation */
+}</code></pre>
+              </div>
+              <div class="fast-animation">
+                <strong>✅ Fast (GPU accelerated):</strong>
+                <pre><code>.element {
+  transition: transform 0.3s ease;
+  will-change: transform;
+}
+
+.element:hover {
+  transform: translateX(100px); /* GPU layer */
+}</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="performance-tools">
+        <h3>🛠️ Performance Tools</h3>
+        <div class="tools-grid">
+          <div class="tool-item">
+            <h4>Chrome DevTools</h4>
+            <ul>
+              <li>Performance tab - วัด paint time</li>
+              <li>Coverage tab - หา unused CSS</li>
+              <li>Lighthouse - Performance audit</li>
+            </ul>
+          </div>
+          <div class="tool-item">
+            <h4>Online Tools</h4>
+            <ul>
+              <li>WebPageTest.org - ทดสอบ loading speed</li>
+              <li>GTmetrix - CSS optimization suggestions</li>
+              <li>PageSpeed Insights - Google recommendations</li>
+            </ul>
+          </div>
+          <div class="tool-item">
+            <h4>Build Tools</h4>
+            <ul>
+              <li>Webpack - CSS optimization</li>
+              <li>PostCSS - CSS processing</li>
+              <li>PurgeCSS - Remove unused styles</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="performance-demo">
+        <h3>📊 Performance Demo</h3>
+        <div class="perf-demo-container">
+          <div class="demo-controls">
+            <button onclick="runPerformanceTest('heavy')" class="perf-btn">
+              Test Heavy Animation
+            </button>
+            <button onclick="runPerformanceTest('optimized')" class="perf-btn">
+              Test Optimized Animation
+            </button>
+            <button onclick="clearPerformanceTest()" class="perf-btn">
+              Clear Test
+            </button>
+          </div>
+
+          <div class="performance-results" id="performance-results">
+            <div class="result-item">
+              <span class="result-label">FPS:</span>
+              <span class="result-value" id="fps-value">--</span>
+            </div>
+            <div class="result-item">
+              <span class="result-label">Paint Time:</span>
+              <span class="result-value" id="paint-time">--</span>
+            </div>
+          </div>
+
+          <div class="animation-playground" id="animation-playground">
+            <!-- Animation elements will be added here -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+  </body>
+</html>
