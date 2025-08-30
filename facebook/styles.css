@@ -52,7 +52,7 @@ body {
 }
 
 /* ========================================
-   MAIN GRID LAYOUT - CSS Grid for Page Structure (Like Exercise)
+   MAIN GRID LAYOUT 
    ======================================== */
 .facebook-container {
     display: grid;
@@ -922,7 +922,6 @@ body {
     }
 }
 
-/* เทคนิคจัดกลางแนวตั้งและแนวนอน (from the original example) */
 .centered-content {
     display: flex;
     justify-content: center;
@@ -930,7 +929,6 @@ body {
     height: 100vh;
 }
 
-/* Additional utility classes inspired by the original flexbox concepts */
 .flex-container {
     display: flex;
 }
