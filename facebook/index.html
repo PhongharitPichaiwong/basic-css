@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Facebook Clone - Flexbox Demo</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Facebook Grid Container -->
+    <div class="facebook-container">
+      <!-- Header Navigation -->
+      <header class="navbar">
+        <div class="nav-left">
+          <div class="logo">facebook</div>
+          <div class="search-container">
+            <input
+              type="text"
+              placeholder="ค้นหาบน Facebook"
+              class="search-bar"
+            />
+          </div>
+        </div>
+
+        <nav class="nav-center">
+          <div class="nav-icons">
+            <div class="nav-icon active">🏠</div>
+            <div class="nav-icon">👥</div>
+            <div class="nav-icon">📺</div>
+            <div class="nav-icon">🛍️</div>
+            <div class="nav-icon">🎮</div>
+          </div>
+        </nav>
+
+        <div class="nav-right">
+          <div class="user-menu">
+            <div class="user-avatar">P</div>
+            <div class="notifications">🔔</div>
+            <div class="messenger">💬</div>
+            <div class="menu-dots">⚙️</div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Content Container -->
+      <main class="main-container">
+        <!-- Left Sidebar -->
+        <aside class="left-sidebar">
+          <div class="sidebar-content">
+            <div class="user-profile">
+              <div class="profile-pic">P</div>
+              <span>Username</span>
+            </div>
+
+            <div class="sidebar-links">
+              <div class="sidebar-link">
+                <span class="icon">👥</span>
+                <span>เพื่อน</span>
+              </div>
+              <div class="sidebar-link">
+                <span class="icon">⏰</span>
+                <span>ความทรงจำ</span>
+              </div>
+              <div class="sidebar-link">
+                <span class="icon">💾</span>
+                <span>บันทึกแล้ว</span>
+              </div>
+              <div class="sidebar-link">
+                <span class="icon">👥</span>
+                <span>กลุ่ม</span>
+              </div>
+              <div class="sidebar-link">
+                <span class="icon">📺</span>
+                <span>วิดีโอ</span>
+              </div>
+              <div class="sidebar-link">
+                <span class="icon">🛍️</span>
+                <span>Marketplace</span>
+              </div>
+              <div class="sidebar-link">
+                <span class="icon">📰</span>
+                <span>ฟีด</span>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Main Feed (centered content like movie cards) -->
+        <section class="main-feed">
+          <!-- Post Creation Box -->
+          <div class="post-creation">
+            <div class="post-header">
+              <div class="post-avatar">P</div>
+              <input
+                type="text"
+                placeholder="Phong คิดอะไรอยู่?"
+                class="post-input"
+              />
+            </div>
+            <div class="post-actions">
+              <div class="post-action">
+                <span class="action-icon">📹</span>
+                <span>วิดีโอสด</span>
+              </div>
+              <div class="post-action">
+                <span class="action-icon">📷</span>
+                <span>รูปภาพ/วิดีโอ</span>
+              </div>
+              <div class="post-action">
+                <span class="action-icon">😊</span>
+                <span>ความรู้สึก/กิจกรรม</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sample Posts (like movie cards with flex properties) -->
+          <article class="post-card">
+            <div class="post-header">
+              <div class="post-user">
+                <div class="post-avatar">J</div>
+                <div class="post-info">
+                  <h3>John Doe</h3>
+                  <span class="post-time">2 ชั่วโมงที่แล้ว</span>
+                </div>
+              </div>
+              <div class="post-menu">⋯</div>
+            </div>
+
+            <div class="post-content">
+              <p>
+                วันนี้ได้เรียนรู้เรื่อง Flexbox ใน CSS แล้ว!
+                เป็นเครื่องมือที่ทรงพลังมากสำหรับการจัด layout 🚀
+              </p>
+              <div class="post-image">
+                <div class="image-placeholder">📱 รูปภาพ: Flexbox Tutorial</div>
+              </div>
+            </div>
+
+            <div class="post-stats">
+              <span>👍 25 คน</span>
+              <span>💬 5 ความคิดเห็น</span>
+            </div>
+
+            <div class="post-actions">
+              <div class="action-btn">
+                <span>👍</span>
+                <span>ถูกใจ</span>
+              </div>
+              <div class="action-btn">
+                <span>💬</span>
+                <span>แสดงความคิดเห็น</span>
+              </div>
+              <div class="action-btn">
+                <span>📤</span>
+                <span>แชร์</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="post-card">
+            <div class="post-header">
+              <div class="post-user">
+                <div class="post-avatar">S</div>
+                <div class="post-info">
+                  <h3>Sarah Wilson</h3>
+                  <span class="post-time">4 ชั่วโมงที่แล้ว</span>
+                </div>
+              </div>
+              <div class="post-menu">⋯</div>
+            </div>
+
+            <div class="post-content">
+              <p>
+                เพิ่งเสร็จโปรเจค web development แล้ว! ขอบคุณทุกคนที่ให้กำลังใจ
+                💪
+              </p>
+            </div>
+
+            <div class="post-stats">
+              <span>👍 42 คน</span>
+              <span>💬 8 ความคิดเห็น</span>
+            </div>
+
+            <div class="post-actions">
+              <div class="action-btn">
+                <span>👍</span>
+                <span>ถูกใจ</span>
+              </div>
+              <div class="action-btn">
+                <span>💬</span>
+                <span>แสดงความคิดเห็น</span>
+              </div>
+              <div class="action-btn">
+                <span>📤</span>
+                <span>แชร์</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="post-card">
+            <div class="post-header">
+              <div class="post-user">
+                <div class="post-avatar">M</div>
+                <div class="post-info">
+                  <h3>Mike Chen</h3>
+                  <span class="post-time">6 ชั่วโมงที่แล้ว</span>
+                </div>
+              </div>
+              <div class="post-menu">⋯</div>
+            </div>
+
+            <div class="post-content">
+              <p>Tips สำหรับการเรียน CSS:</p>
+              <ul>
+                <li>ฝึกทำโปรเจคจริง</li>
+                <li>เรียนรู้ Flexbox และ Grid</li>
+                <li>ดู Documentation บ่อยๆ</li>
+                <li>ทดลองกับ Developer Tools</li>
+              </ul>
+            </div>
+
+            <div class="post-stats">
+              <span>👍 18 คน</span>
+              <span>💬 12 ความคิดเห็น</span>
+            </div>
+
+            <div class="post-actions">
+              <div class="action-btn">
+                <span>👍</span>
+                <span>ถูกใจ</span>
+              </div>
+              <div class="action-btn">
+                <span>💬</span>
+                <span>แสดงความคิดเห็น</span>
+              </div>
+              <div class="action-btn">
+                <span>📤</span>
+                <span>แชร์</span>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <!-- Right Sidebar -->
+        <aside class="right-sidebar">
+          <div class="sidebar-content">
+            <div class="contacts-section">
+              <h3>ผู้ติดต่อ</h3>
+              <div class="contact-list">
+                <div class="contact">
+                  <div class="contact-avatar online">A</div>
+                  <span>Alice Johnson</span>
+                </div>
+                <div class="contact">
+                  <div class="contact-avatar online">B</div>
+                  <span>Bob Smith</span>
+                </div>
+                <div class="contact">
+                  <div class="contact-avatar">C</div>
+                  <span>Carol Brown</span>
+                </div>
+                <div class="contact">
+                  <div class="contact-avatar online">D</div>
+                  <span>David Lee</span>
+                </div>
+                <div class="contact">
+                  <div class="contact-avatar">E</div>
+                  <span>Emma Davis</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="sponsored-section">
+              <h3>ได้รับการสนับสนุน</h3>
+              <div class="sponsored-item">
+                <div class="sponsored-image">📚</div>
+                <div class="sponsored-content">
+                  <h4>เรียน Web Development</h4>
+                  <p>เรียนออนไลน์ฟรี</p>
+                </div>
+              </div>
+              <div class="sponsored-item">
+                <div class="sponsored-image">💻</div>
+                <div class="sponsored-content">
+                  <h4>Coding Bootcamp</h4>
+                  <p>เริ่มต้นอาชีพโปรแกรมเมอร์</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </main>
+    </div>
+  </body>
+</html>
