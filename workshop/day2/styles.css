@@ -163,6 +163,18 @@ section {
     box-shadow: var(--shadow-2xl);
     border: 1px solid rgba(255, 255, 255, 0.1);
     position: relative;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Force Performance section to be visible */
+#performance {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: static !important;
+    min-height: 200px !important;
 }
 
 /* Remove excessive bottom margin from the last section */
@@ -239,6 +251,7 @@ pre {
     margin: var(--space-4) 0;
     border: 1px solid rgba(100, 116, 139, 0.2);
     box-shadow: var(--shadow-md);
+    white-space: pre;
 }
 
 code {
@@ -248,6 +261,10 @@ code {
     font-size: var(--text-sm);
     padding: var(--space-1) var(--space-2);
     border-radius: var(--radius-sm);
+    white-space: nowrap;
+    display: inline-block;
+    max-width: 100%;
+    overflow-x: auto;
 }
 
 pre code {
@@ -341,8 +358,8 @@ pre code {
    CONCEPT OVERVIEW
    ======================================== */
 .concept-overview {
-    background: rgba(var(--color-primary), 0.1);
-    border: 1px solid rgba(var(--color-primary), 0.2);
+    background: rgba(229, 9, 20, 0.1);
+    border: 1px solid rgba(229, 9, 20, 0.2);
     border-radius: var(--radius-xl);
     padding: var(--space-8);
     margin-bottom: var(--space-8);
@@ -355,6 +372,79 @@ pre code {
 /* ========================================
    BEM METHODOLOGY STYLES
    ======================================== */
+
+/* Theory Section */
+.theory-section {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    margin: var(--space-8) 0;
+}
+
+/* Demo Section */
+.demo-section {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    margin: var(--space-8) 0;
+}
+
+/* BEM Benefits */
+.bem-benefits {
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    margin: var(--space-6) 0;
+}
+
+.bem-benefits h4 {
+    color: var(--color-success);
+    margin-top: 0;
+    margin-bottom: var(--space-4);
+    font-size: var(--text-lg);
+    font-weight: var(--font-semibold);
+}
+
+.bem-benefits ul {
+    margin: 0;
+    padding-left: var(--space-6);
+}
+
+.bem-benefits li {
+    color: var(--color-text-inverse);
+    margin: var(--space-3) 0;
+    line-height: 1.6;
+}
+
+/* Code Output */
+.code-output {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    margin: var(--space-6) 0;
+}
+
+.code-output h4 {
+    color: var(--color-info);
+    margin-top: 0;
+    margin-bottom: var(--space-4);
+    font-size: var(--text-lg);
+    font-weight: var(--font-semibold);
+}
+
+.code-output pre {
+    margin: 0;
+    background: rgba(0, 0, 0, 0.3);
+    padding: var(--space-4);
+    border-radius: var(--radius-md);
+    font-size: var(--text-sm);
+    line-height: 1.5;
+    overflow-x: auto;
+}
 
 /* BEM Explanation Section */
 .bem-explanation {
@@ -372,7 +462,7 @@ pre code {
 }
 
 .bem-acronym {
-    background: rgba(var(--color-primary), 0.1);
+    background: rgba(229, 9, 20, 0.1);
     border-left: 4px solid var(--color-primary);
     padding: var(--space-6);
     margin: var(--space-6) 0;
@@ -413,7 +503,7 @@ pre code {
 }
 
 .bem-concept code {
-    background: rgba(var(--color-primary), 0.2);
+    background: rgba(229, 9, 20, 0.2);
     color: var(--color-text-inverse);
     padding: var(--space-1) var(--space-2);
     border-radius: var(--radius-sm);
@@ -422,8 +512,8 @@ pre code {
 }
 
 .example-highlight {
-    background: rgba(var(--color-success), 0.1);
-    border: 1px solid rgba(var(--color-success), 0.3);
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.3);
     border-radius: var(--radius-md);
     padding: var(--space-4);
     margin: var(--space-4) 0;
@@ -436,13 +526,13 @@ pre code {
 }
 
 .example-highlight code {
-    background: rgba(var(--color-success), 0.2);
+    background: rgba(16, 185, 129, 0.2);
     color: var(--color-text-inverse);
 }
 
 .bem-note {
-    background: rgba(var(--color-info), 0.1);
-    border: 1px solid rgba(var(--color-info), 0.3);
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.3);
     border-radius: var(--radius-sm);
     padding: var(--space-3);
     margin: var(--space-3) 0;
@@ -456,7 +546,7 @@ pre code {
 }
 
 .bem-note code {
-    background: rgba(var(--color-info), 0.2);
+    background: rgba(59, 130, 246, 0.2);
     color: var(--color-text-inverse);
     font-weight: var(--font-bold);
 }
@@ -653,14 +743,15 @@ pre code {
 }
 
 .spec-breakdown {
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.08);
     padding: var(--space-2) var(--space-4);
     border-radius: var(--radius-sm);
     font-size: var(--text-sm);
-    color: var(--color-text-secondary);
+    color: var(--color-text-inverse);
     font-family: var(--font-family-mono);
     border-left: 3px solid var(--color-info);
     margin-bottom: var(--space-4);
+    font-weight: var(--font-medium);
 }
 
 .specificity-examples {
@@ -1551,22 +1642,21 @@ a.tailwind-highlight::before {
 }
 
 .comparison-examples {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-6);
+    display: block;
     margin: var(--space-4) 0;
 }
 
 .inline-example {
-    background: rgba(var(--color-error), 0.1);
-    border: 1px solid rgba(var(--color-error), 0.3);
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
     border-radius: var(--radius-md);
     padding: var(--space-4);
+    margin-bottom: var(--space-6);
 }
 
 .styled-example {
-    background: rgba(var(--color-success), 0.1);
-    border: 1px solid rgba(var(--color-success), 0.3);
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.3);
     border-radius: var(--radius-md);
     padding: var(--space-4);
 }
@@ -1623,6 +1713,20 @@ a.tailwind-highlight::before {
     font-family: var(--font-family-mono);
 }
 
+.what-browser-sees code {
+    background: #0f172a;
+    color: #94a3b8;
+    font-size: var(--text-xs);
+    padding: var(--space-1);
+    border-radius: var(--radius-xs);
+    display: inline-block;
+    margin: 0 var(--space-1);
+    white-space: nowrap;
+    max-width: 100%;
+    overflow-x: auto;
+    vertical-align: top;
+}
+
 .performance-conclusion {
     background: rgba(var(--color-primary), 0.1);
     border: 1px solid rgba(var(--color-primary), 0.3);
@@ -1672,9 +1776,7 @@ a.tailwind-highlight::before {
         grid-template-columns: 1fr;
     }
     
-    .comparison-examples {
-        grid-template-columns: 1fr;
-    }
+
 }
 .bem-structure {
     display: grid;
@@ -2643,4 +2745,320 @@ a.tailwind-highlight::before {
 .stat-label {
     font-size: var(--text-sm);
     color: var(--color-text-secondary);
+}
+
+/* ========================================
+   PERFORMANCE BEST PRACTICES STYLES
+   ======================================== */
+
+/* Performance Techniques */
+.performance-techniques {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    margin: var(--space-8) 0;
+}
+
+.techniques-grid {
+    display: block;
+    margin: var(--space-6) 0;
+}
+
+.technique-item {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    border-left: 4px solid var(--color-warning);
+    margin-bottom: var(--space-8);
+    overflow: hidden;
+    word-wrap: break-word;
+    min-width: 0;
+}
+
+.technique-item h4 {
+    color: var(--color-warning);
+    margin-top: 0;
+    margin-bottom: var(--space-4);
+    font-size: var(--text-lg);
+    font-weight: var(--font-semibold);
+}
+
+.technique-item pre {
+    overflow-x: auto;
+    white-space: pre;
+    max-width: 100%;
+    font-size: var(--text-sm);
+    line-height: 1.4;
+}
+
+.technique-item code {
+    white-space: pre;
+    font-family: var(--font-family-mono);
+}
+
+.before-after {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4);
+    margin: var(--space-4) 0;
+}
+
+.before,
+.after {
+    background: rgba(255, 255, 255, 0.03);
+    padding: var(--space-4);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    min-width: 0;
+}
+
+.before pre,
+.after pre {
+    overflow-x: auto;
+    white-space: pre;
+    max-width: 100%;
+    font-size: var(--text-xs);
+    line-height: 1.3;
+}
+
+.before {
+    border-left: 3px solid var(--color-error);
+}
+
+.after {
+    border-left: 3px solid var(--color-success);
+}
+
+.before strong {
+    color: var(--color-error);
+    display: block;
+    margin-bottom: var(--space-2);
+}
+
+.after strong {
+    color: var(--color-success);
+    display: block;
+    margin-bottom: var(--space-2);
+}
+
+/* Performance Tools */
+.performance-tools {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    margin: var(--space-8) 0;
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-6);
+    margin: var(--space-6) 0;
+}
+
+.tool-item {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    border-left: 4px solid var(--color-info);
+}
+
+.tool-item h4 {
+    color: var(--color-info);
+    margin-top: 0;
+    margin-bottom: var(--space-4);
+    font-size: var(--text-lg);
+    font-weight: var(--font-semibold);
+}
+
+.tool-item ul {
+    margin: 0;
+    padding-left: var(--space-6);
+}
+
+.tool-item li {
+    color: var(--color-text-inverse);
+    margin: var(--space-2) 0;
+    line-height: 1.5;
+}
+
+/* Performance Demo */
+.performance-demo {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+    margin: var(--space-8) 0;
+}
+
+.perf-demo-container {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+}
+
+.demo-controls {
+    display: flex;
+    gap: var(--space-4);
+    margin-bottom: var(--space-6);
+    flex-wrap: wrap;
+}
+
+.perf-btn {
+    padding: var(--space-3) var(--space-6);
+    border-radius: var(--radius-lg);
+    border: none;
+    background: var(--color-primary);
+    color: white;
+    font-weight: var(--font-medium);
+    cursor: pointer;
+    transition: var(--transition-normal);
+}
+
+.perf-btn:hover {
+    background: #b91c1c;
+}
+
+.performance-results {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--space-4);
+    margin-bottom: var(--space-6);
+    padding: var(--space-4);
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: var(--radius-md);
+}
+
+.result-item {
+    text-align: center;
+}
+
+.result-label {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    display: block;
+    margin-bottom: var(--space-1);
+}
+
+.result-value {
+    font-size: var(--text-lg);
+    font-weight: var(--font-bold);
+    color: var(--color-primary);
+}
+
+.animation-playground {
+    min-height: 200px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-md);
+    padding: var(--space-4);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Performance Comparison Styles */
+.performance-comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+    margin: var(--space-6) 0;
+}
+
+.perf-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: var(--space-4);
+    border-radius: var(--radius-md);
+    border-left: 3px solid var(--color-secondary);
+}
+
+.perf-item strong {
+    color: var(--color-secondary);
+    display: block;
+    margin-bottom: var(--space-3);
+    font-size: var(--text-base);
+}
+
+.perf-item ul {
+    margin: 0;
+    padding-left: var(--space-6);
+}
+
+.perf-item li {
+    color: var(--color-text-inverse);
+    margin: var(--space-2) 0;
+    line-height: 1.5;
+}
+
+/* Animation Performance */
+.animation-comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+    margin: var(--space-6) 0;
+}
+
+.slow-animation,
+.fast-animation {
+    background: rgba(255, 255, 255, 0.05);
+    padding: var(--space-4);
+    border-radius: var(--radius-md);
+}
+
+.slow-animation {
+    border-left: 3px solid var(--color-error);
+}
+
+.fast-animation {
+    border-left: 3px solid var(--color-success);
+}
+
+.slow-animation strong {
+    color: var(--color-error);
+    display: block;
+    margin-bottom: var(--space-3);
+}
+
+.fast-animation strong {
+    color: var(--color-success);
+    display: block;
+    margin-bottom: var(--space-3);
+}
+
+/* Responsive Design for Performance Section */
+@media (max-width: 900px) {
+
+    
+    .tools-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .performance-comparison {
+        grid-template-columns: 1fr;
+    }
+    
+    .animation-comparison {
+        grid-template-columns: 1fr;
+    }
+    
+    .before-after {
+        grid-template-columns: 1fr;
+    }
+    
+    .demo-controls {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 600px) {
+    .technique-item pre {
+        font-size: 0.75rem;
+    }
+    
+    .before pre,
+    .after pre {
+        font-size: 0.7rem;
+    }
 }
